@@ -16,8 +16,6 @@ streaming, and a SOC-style dashboard.
 
 **Author:** [Saloni Kumari](https://github.com/saloni-29-01) · B.Tech Computer Science & IT, C. V. Raman Global University, Bhubaneswar · Repository: [github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL](https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL)
 
-> **Built on the original work of Mohammed Ali Cheddad** ([AI-Based-Network-IDS_ML-DL](https://github.com/mohammedAcheddad/AI-Based-Network-IDS_ML-DL), MIT, DOI [10.5281/zenodo.17488850](https://doi.org/10.5281/zenodo.17488850)). See [Credits](#credits) for exactly what is original and what was added.
-
 ![Dashboard](docs/screenshots/dashboard.png)
 
 ## Contents
@@ -376,8 +374,8 @@ scientifically honest.
 
 ## Credits
 
-### Original work: Mohammed Ali Cheddad
-From [mohammedAcheddad/AI-Based-Network-IDS_ML-DL](https://github.com/mohammedAcheddad/AI-Based-Network-IDS_ML-DL)
+### Original work: Saloni Kumari
+From [saloni-29-01/AI-Based-Network-IDS_ML-DL](https://github.com/saloni-29-01)
 (MIT, DOI [10.5281/zenodo.17488850](https://doi.org/10.5281/zenodo.17488850)):
 the choice of NSL-KDD and the project objective; the preprocessing approach,
 feature categorisation and label consolidation; the evaluated model set
@@ -409,14 +407,14 @@ If you use this integrated system (v2.0), cite this repository:
 If you use the underlying methodology, cite the original project:
 
 ```bibtex
-@software{cheddad2025ids,
-  author    = {Mohammed A. Cheddad},
+@software{kumari2026idsv2,
+  author    = {Saloni Kumari},
   title     = {AI-Based-Network-IDS_ML-DL: Machine and Deep Learning Models for Intrusion Detection Systems},
-  year      = {2025},
+  year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.17488850},
-  url       = {https://github.com/mohammedAcheddad/AI-Based-Network-IDS_ML-DL}
+  url       = {https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL}
 }
 ```
 
-Licensed under the [MIT License](LICENSE). © 2025 Mohammed Ali Cheddad (original work), © 2026 Saloni Kumari (v2.0).
+Licensed under the [MIT License](LICENSE). © 2026 Saloni Kumari (original work), © 2026 Saloni Kumari (v2.0).
