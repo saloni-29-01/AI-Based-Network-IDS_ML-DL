@@ -1,0 +1,463 @@
+{
+  "name": "Random Forest (multiclass, flow features)",
+  "algo": "rf",
+  "task": "multiclass",
+  "feature_set": "flow",
+  "variant": null,
+  "classes": [
+    "normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 28,
+  "n_inputs": 109,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:41:06+00:00",
+  "training_seconds": 3.88,
+  "train_rows": 113375,
+  "train_class_counts": {
+    "normal": 60608,
+    "DoS": 41334,
+    "Probe": 10490,
+    "R2L": 896,
+    "U2R": 47
+  },
+  "hyperparameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9984124464200667,
+      "confusion_matrix": [
+        [
+          6729,
+          3,
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          4593,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          1163,
+          0,
+          0
+        ],
+        [
+          7,
+          0,
+          0,
+          91,
+          1
+        ],
+        [
+          3,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9980717887867102,
+          "recall": 0.9991091314031181,
+          "f1": 0.9985901906952586,
+          "support": 6735
+        },
+        "DoS": {
+          "precision": 0.9993472584856397,
+          "recall": 1.0,
+          "f1": 0.9996735226901731,
+          "support": 4593
+        },
+        "Probe": {
+          "precision": 0.9991408934707904,
+          "recall": 0.9974271012006861,
+          "f1": 0.9982832618025751,
+          "support": 1166
+        },
+        "R2L": {
+          "precision": 0.978494623655914,
+          "recall": 0.9191919191919192,
+          "f1": 0.9479166666666666,
+          "support": 99
+        },
+        "U2R": {
+          "precision": 0.6666666666666666,
+          "recall": 0.4,
+          "f1": 0.5,
+          "support": 5
+        }
+      },
+      "macro_precision": 0.9283442462131442,
+      "macro_recall": 0.8631456303591447,
+      "macro_f1": 0.8888927283709347,
+      "weighted_precision": 0.9983503761363112,
+      "weighted_recall": 0.9984124464200667,
+      "weighted_f1": 0.9983606490959147,
+      "roc_auc_ovr_macro": 0.9999247483930995,
+      "precision": 0.9283442462131442,
+      "recall": 0.8631456303591447,
+      "f1": 0.8888927283709347,
+      "false_positive_rate": 0.0008908685968819599,
+      "false_negative_rate": 0.0022172949002217295,
+      "attack_detection": {
+        "accuracy": 0.9984918240990633,
+        "precision": 0.9989754098360656,
+        "recall": 0.9977827050997783,
+        "f1": 0.9983787012543732,
+        "false_positive_rate": 0.0008908685968819599,
+        "false_negative_rate": 0.0022172949002217295,
+        "roc_auc": 0.9999886545815168,
+        "tp": 5850,
+        "tn": 6729,
+        "fp": 6,
+        "fn": 13
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.7573633782824698,
+      "confusion_matrix": [
+        [
+          9458,
+          67,
+          184,
+          2,
+          0
+        ],
+        [
+          1528,
+          5901,
+          31,
+          0,
+          0
+        ],
+        [
+          814,
+          163,
+          1444,
+          0,
+          0
+        ],
+        [
+          2611,
+          0,
+          3,
+          271,
+          0
+        ],
+        [
+          67,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6532670258322972,
+          "recall": 0.9739470703326125,
+          "f1": 0.7820083509033031,
+          "support": 9711
+        },
+        "DoS": {
+          "precision": 0.9624857282661883,
+          "recall": 0.7910187667560322,
+          "f1": 0.8683687734530203,
+          "support": 7460
+        },
+        "Probe": {
+          "precision": 0.8688327316486161,
+          "recall": 0.5964477488641058,
+          "f1": 0.7073230467793289,
+          "support": 2421
+        },
+        "R2L": {
+          "precision": 0.9926739926739927,
+          "recall": 0.09393414211438475,
+          "f1": 0.17162761241291957,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.6954518956842188,
+      "macro_recall": 0.491069545613427,
+      "macro_f1": 0.5058655567097143,
+      "weighted_precision": 0.8202327951077437,
+      "weighted_recall": 0.7573633782824698,
+      "weighted_f1": 0.7221295645690888,
+      "roc_auc_ovr_macro": 0.9503304100511902,
+      "precision": 0.6954518956842188,
+      "recall": 0.491069545613427,
+      "f1": 0.5058655567097143,
+      "false_positive_rate": 0.0260529296673875,
+      "false_negative_rate": 0.3911789916621211,
+      "attack_detection": {
+        "accuracy": 0.7661018452803406,
+        "precision": 0.968633771386065,
+        "recall": 0.6088210083378789,
+        "f1": 0.7476912770945978,
+        "false_positive_rate": 0.0260529296673875,
+        "false_negative_rate": 0.3911789916621211,
+        "roc_auc": 0.9627219754625663,
+        "tp": 7813,
+        "tn": 9458,
+        "fp": 253,
+        "fn": 5020
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.5389873417721519,
+      "confusion_matrix": [
+        [
+          1899,
+          67,
+          184,
+          2,
+          0
+        ],
+        [
+          1528,
+          2792,
+          24,
+          0,
+          0
+        ],
+        [
+          814,
+          163,
+          1425,
+          0,
+          0
+        ],
+        [
+          2611,
+          0,
+          3,
+          271,
+          0
+        ],
+        [
+          67,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.2744616274028039,
+          "recall": 0.8824349442379182,
+          "f1": 0.4186969463124242,
+          "support": 2152
+        },
+        "DoS": {
+          "precision": 0.9238914626075446,
+          "recall": 0.6427255985267035,
+          "f1": 0.7580776540863426,
+          "support": 4344
+        },
+        "Probe": {
+          "precision": 0.8710268948655256,
+          "recall": 0.593255620316403,
+          "f1": 0.7057949479940565,
+          "support": 2402
+        },
+        "R2L": {
+          "precision": 0.9926739926739927,
+          "recall": 0.09393414211438475,
+          "f1": 0.17162761241291957,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.6124107955099733,
+      "macro_recall": 0.44247006103908193,
+      "macro_f1": 0.41083943216114854,
+      "weighted_precision": 0.8067592410185207,
+      "weighted_recall": 0.5389873417721519,
+      "weighted_f1": 0.5387839902707516,
+      "roc_auc_ovr_macro": 0.8810307009889066,
+      "precision": 0.6124107955099733,
+      "recall": 0.44247006103908193,
+      "f1": 0.41083943216114854,
+      "false_positive_rate": 0.11756505576208179,
+      "false_negative_rate": 0.5176325015467107,
+      "attack_detection": {
+        "accuracy": 0.5550210970464134,
+        "precision": 0.9486919488947475,
+        "recall": 0.48236749845328936,
+        "f1": 0.6395515756374325,
+        "false_positive_rate": 0.11756505576208179,
+        "false_negative_rate": 0.5176325015467107,
+        "roc_auc": 0.7969801145140876,
+        "tp": 4678,
+        "tn": 1899,
+        "fp": 253,
+        "fn": 5020
+      }
+    }
+  },
+  "history": null,
+  "feature_importance": [
+    {
+      "feature": "flag",
+      "importance": 0.11507
+    },
+    {
+      "feature": "src_bytes",
+      "importance": 0.1119
+    },
+    {
+      "feature": "same_srv_rate",
+      "importance": 0.08586
+    },
+    {
+      "feature": "service",
+      "importance": 0.07466
+    },
+    {
+      "feature": "dst_bytes",
+      "importance": 0.06416
+    },
+    {
+      "feature": "dst_host_serror_rate",
+      "importance": 0.05503
+    },
+    {
+      "feature": "dst_host_same_srv_rate",
+      "importance": 0.05318
+    },
+    {
+      "feature": "count",
+      "importance": 0.04722
+    },
+    {
+      "feature": "diff_srv_rate",
+      "importance": 0.04656
+    },
+    {
+      "feature": "dst_host_diff_srv_rate",
+      "importance": 0.03855
+    },
+    {
+      "feature": "serror_rate",
+      "importance": 0.03684
+    },
+    {
+      "feature": "dst_host_srv_count",
+      "importance": 0.03527
+    },
+    {
+      "feature": "dst_host_srv_serror_rate",
+      "importance": 0.03316
+    },
+    {
+      "feature": "dst_host_same_src_port_rate",
+      "importance": 0.03207
+    },
+    {
+      "feature": "protocol_type",
+      "importance": 0.03021
+    }
+  ],
+  "id": "flow-multiclass-rf",
+  "version": 1,
+  "artifact": "model.joblib",
+  "path": "flow-multiclass-rf/v1"
+}

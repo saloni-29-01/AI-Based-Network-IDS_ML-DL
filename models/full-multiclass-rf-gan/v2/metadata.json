@@ -1,0 +1,476 @@
+{
+  "name": "Random Forest (multiclass, full features) [gan]",
+  "algo": "rf",
+  "task": "multiclass",
+  "feature_set": "full",
+  "variant": "gan",
+  "classes": [
+    "normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 41,
+  "n_inputs": 122,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]+gan(16828 synthetic)",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T12:37:10+00:00",
+  "training_seconds": 5.24,
+  "train_rows": 130203,
+  "train_class_counts": {
+    "normal": 60608,
+    "DoS": 41334,
+    "R2L": 16736,
+    "Probe": 10490,
+    "U2R": 1035
+  },
+  "hyperparameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9987299571360534,
+      "confusion_matrix": [
+        [
+          6726,
+          3,
+          0,
+          4,
+          2
+        ],
+        [
+          0,
+          4593,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          1162,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          96,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9989603445715134,
+          "recall": 0.9986636971046771,
+          "f1": 0.9988119988119988,
+          "support": 6735
+        },
+        "DoS": {
+          "precision": 0.9993472584856397,
+          "recall": 1.0,
+          "f1": 0.9996735226901731,
+          "support": 4593
+        },
+        "Probe": {
+          "precision": 1.0,
+          "recall": 0.9965694682675815,
+          "f1": 0.9982817869415808,
+          "support": 1166
+        },
+        "R2L": {
+          "precision": 0.96,
+          "recall": 0.9696969696969697,
+          "f1": 0.964824120603015,
+          "support": 99
+        },
+        "U2R": {
+          "precision": 0.7142857142857143,
+          "recall": 1.0,
+          "f1": 0.8333333333333334,
+          "support": 5
+        }
+      },
+      "macro_precision": 0.9345186634685735,
+      "macro_recall": 0.9929860270138458,
+      "macro_f1": 0.9589849524760201,
+      "weighted_precision": 0.9987784813053752,
+      "weighted_recall": 0.9987299571360534,
+      "weighted_f1": 0.9987442546352616,
+      "roc_auc_ovr_macro": 0.9999329871293365,
+      "precision": 0.9345186634685735,
+      "recall": 0.9929860270138458,
+      "f1": 0.9589849524760201,
+      "false_positive_rate": 0.0013363028953229399,
+      "false_negative_rate": 0.0011939280231963159,
+      "attack_detection": {
+        "accuracy": 0.9987299571360534,
+        "precision": 0.99846547314578,
+        "recall": 0.9988060719768037,
+        "f1": 0.9986357435197817,
+        "false_positive_rate": 0.0013363028953229399,
+        "false_negative_rate": 0.0011939280231963159,
+        "roc_auc": 0.9999816903179389,
+        "tp": 5856,
+        "tn": 6726,
+        "fp": 9,
+        "fn": 7
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.7586053938963804,
+      "confusion_matrix": [
+        [
+          9446,
+          67,
+          189,
+          4,
+          5
+        ],
+        [
+          1546,
+          5794,
+          120,
+          0,
+          0
+        ],
+        [
+          770,
+          178,
+          1470,
+          3,
+          0
+        ],
+        [
+          2498,
+          0,
+          6,
+          375,
+          6
+        ],
+        [
+          46,
+          0,
+          0,
+          4,
+          17
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6602823989934293,
+          "recall": 0.972711358253527,
+          "f1": 0.7866094849481617,
+          "support": 9711
+        },
+        "DoS": {
+          "precision": 0.9594303692664349,
+          "recall": 0.7766756032171582,
+          "f1": 0.8584339580709682,
+          "support": 7460
+        },
+        "Probe": {
+          "precision": 0.8235294117647058,
+          "recall": 0.6071871127633209,
+          "f1": 0.6990014265335235,
+          "support": 2421
+        },
+        "R2L": {
+          "precision": 0.9715025906735751,
+          "recall": 0.12998266897746968,
+          "f1": 0.22928767960868235,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.6071428571428571,
+          "recall": 0.2537313432835821,
+          "f1": 0.35789473684210527,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.8043775255682004,
+      "macro_recall": 0.5480576172990116,
+      "macro_f1": 0.5862454572006882,
+      "weighted_precision": 0.8164736152748842,
+      "weighted_recall": 0.7586053938963804,
+      "weighted_f1": 0.7283728882282714,
+      "roc_auc_ovr_macro": 0.9557240722810155,
+      "precision": 0.8043775255682004,
+      "recall": 0.5480576172990116,
+      "f1": 0.5862454572006882,
+      "false_positive_rate": 0.027288641746473073,
+      "false_negative_rate": 0.37871113535416506,
+      "attack_detection": {
+        "accuracy": 0.772666784953868,
+        "precision": 0.967831998057781,
+        "recall": 0.621288864645835,
+        "f1": 0.7567747140619809,
+        "false_positive_rate": 0.027288641746473073,
+        "false_negative_rate": 0.37871113535416506,
+        "roc_auc": 0.9726953898709885,
+        "tp": 7973,
+        "tn": 9446,
+        "fp": 265,
+        "fn": 4860
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.5463291139240506,
+      "confusion_matrix": [
+        [
+          1887,
+          67,
+          189,
+          4,
+          5
+        ],
+        [
+          1546,
+          2744,
+          54,
+          0,
+          0
+        ],
+        [
+          770,
+          178,
+          1451,
+          3,
+          0
+        ],
+        [
+          2498,
+          0,
+          6,
+          375,
+          6
+        ],
+        [
+          46,
+          0,
+          0,
+          4,
+          17
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.2796798577145398,
+          "recall": 0.8768587360594795,
+          "f1": 0.4240925946735588,
+          "support": 2152
+        },
+        "DoS": {
+          "precision": 0.9180327868852459,
+          "recall": 0.6316758747697975,
+          "f1": 0.7483976544388381,
+          "support": 4344
+        },
+        "Probe": {
+          "precision": 0.8535294117647059,
+          "recall": 0.6040799333888426,
+          "f1": 0.7074597757191614,
+          "support": 2402
+        },
+        "R2L": {
+          "precision": 0.9715025906735751,
+          "recall": 0.12998266897746968,
+          "f1": 0.22928767960868235,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.6071428571428571,
+          "recall": 0.2537313432835821,
+          "f1": 0.35789473684210527,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.7259775008361847,
+      "macro_recall": 0.49926571129583425,
+      "macro_f1": 0.49342648825646923,
+      "weighted_precision": 0.800290858448258,
+      "weighted_recall": 0.5463291139240506,
+      "weighted_f1": 0.5526142581381188,
+      "roc_auc_ovr_macro": 0.8929323185663567,
+      "precision": 0.7259775008361847,
+      "recall": 0.49926571129583425,
+      "f1": 0.49342648825646923,
+      "false_positive_rate": 0.12314126394052044,
+      "false_negative_rate": 0.5011342544854609,
+      "attack_detection": {
+        "accuracy": 0.5675105485232067,
+        "precision": 0.9480697628845777,
+        "recall": 0.4988657455145391,
+        "f1": 0.6537396121883656,
+        "false_positive_rate": 0.12314126394052044,
+        "false_negative_rate": 0.5011342544854609,
+        "roc_auc": 0.8525751390889624,
+        "tp": 4838,
+        "tn": 1887,
+        "fp": 265,
+        "fn": 4860
+      }
+    }
+  },
+  "history": null,
+  "feature_importance": [
+    {
+      "feature": "service",
+      "importance": 0.10641
+    },
+    {
+      "feature": "src_bytes",
+      "importance": 0.09794
+    },
+    {
+      "feature": "flag",
+      "importance": 0.08448
+    },
+    {
+      "feature": "dst_host_same_src_port_rate",
+      "importance": 0.05831
+    },
+    {
+      "feature": "dst_bytes",
+      "importance": 0.05509
+    },
+    {
+      "feature": "dst_host_serror_rate",
+      "importance": 0.051
+    },
+    {
+      "feature": "count",
+      "importance": 0.05088
+    },
+    {
+      "feature": "dst_host_srv_count",
+      "importance": 0.04535
+    },
+    {
+      "feature": "diff_srv_rate",
+      "importance": 0.04202
+    },
+    {
+      "feature": "dst_host_same_srv_rate",
+      "importance": 0.04175
+    },
+    {
+      "feature": "same_srv_rate",
+      "importance": 0.0375
+    },
+    {
+      "feature": "dst_host_diff_srv_rate",
+      "importance": 0.03374
+    },
+    {
+      "feature": "srv_serror_rate",
+      "importance": 0.02882
+    },
+    {
+      "feature": "protocol_type",
+      "importance": 0.02873
+    },
+    {
+      "feature": "dst_host_srv_diff_host_rate",
+      "importance": 0.02666
+    }
+  ],
+  "id": "full-multiclass-rf-gan",
+  "version": 2,
+  "artifact": "model.joblib",
+  "path": "full-multiclass-rf-gan/v2"
+}

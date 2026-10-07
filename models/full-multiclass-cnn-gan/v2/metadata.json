@@ -1,0 +1,447 @@
+{
+  "name": "1D-CNN (multiclass, full features) [gan]",
+  "algo": "cnn",
+  "task": "multiclass",
+  "feature_set": "full",
+  "variant": "gan",
+  "classes": [
+    "normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 41,
+  "n_inputs": 122,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]+gan(16828 synthetic)",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T12:38:46+00:00",
+  "training_seconds": 94.53,
+  "train_rows": 130203,
+  "train_class_counts": {
+    "normal": 60608,
+    "DoS": 41334,
+    "R2L": 16736,
+    "Probe": 10490,
+    "U2R": 1035
+  },
+  "hyperparameters": {
+    "epochs_max": 10,
+    "batch_size": 256,
+    "epochs_run": 10
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9960311160501667,
+      "confusion_matrix": [
+        [
+          6689,
+          3,
+          10,
+          24,
+          9
+        ],
+        [
+          0,
+          4593,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1164,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          97,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9994023606753324,
+          "recall": 0.9931700074239049,
+          "f1": 0.9962764372952041,
+          "support": 6735
+        },
+        "DoS": {
+          "precision": 0.9993472584856397,
+          "recall": 1.0,
+          "f1": 0.9996735226901731,
+          "support": 4593
+        },
+        "Probe": {
+          "precision": 0.9914821124361158,
+          "recall": 0.9982847341337907,
+          "f1": 0.9948717948717949,
+          "support": 1166
+        },
+        "R2L": {
+          "precision": 0.8016528925619835,
+          "recall": 0.9797979797979798,
+          "f1": 0.8818181818181818,
+          "support": 99
+        },
+        "U2R": {
+          "precision": 0.35714285714285715,
+          "recall": 1.0,
+          "f1": 0.5263157894736842,
+          "support": 5
+        }
+      },
+      "macro_precision": 0.8298054962603857,
+      "macro_recall": 0.9942505442711351,
+      "macro_f1": 0.8797911452298075,
+      "weighted_precision": 0.9968403199811691,
+      "weighted_recall": 0.9960311160501667,
+      "weighted_f1": 0.996298967031834,
+      "roc_auc_ovr_macro": 0.9999673283797913,
+      "precision": 0.8298054962603857,
+      "recall": 0.9942505442711351,
+      "f1": 0.8797911452298075,
+      "false_positive_rate": 0.006829992576095026,
+      "false_negative_rate": 0.0006822445846836091,
+      "attack_detection": {
+        "accuracy": 0.9960311160501667,
+        "precision": 0.9922099915325995,
+        "recall": 0.9993177554153164,
+        "f1": 0.9957511896668932,
+        "false_positive_rate": 0.006829992576095026,
+        "false_negative_rate": 0.0006822445846836091,
+        "roc_auc": 0.9999726494375851,
+        "tp": 5859,
+        "tn": 6689,
+        "fp": 46,
+        "fn": 4
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.8031848828956707,
+      "confusion_matrix": [
+        [
+          8949,
+          84,
+          664,
+          8,
+          6
+        ],
+        [
+          1276,
+          6150,
+          32,
+          2,
+          0
+        ],
+        [
+          228,
+          177,
+          1799,
+          216,
+          1
+        ],
+        [
+          1670,
+          0,
+          21,
+          1176,
+          18
+        ],
+        [
+          23,
+          0,
+          0,
+          11,
+          33
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.7367857730940227,
+          "recall": 0.9215322829780661,
+          "f1": 0.8188680971771057,
+          "support": 9711
+        },
+        "DoS": {
+          "precision": 0.9592887225081891,
+          "recall": 0.824396782841823,
+          "f1": 0.8867421238555259,
+          "support": 7460
+        },
+        "Probe": {
+          "precision": 0.7150238473767886,
+          "recall": 0.7430813713341594,
+          "f1": 0.7287826615353453,
+          "support": 2421
+        },
+        "R2L": {
+          "precision": 0.832271762208068,
+          "recall": 0.4076256499133449,
+          "f1": 0.5472312703583062,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.5689655172413793,
+          "recall": 0.4925373134328358,
+          "f1": 0.528,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.7624671244856895,
+      "macro_recall": 0.6778346801000458,
+      "macro_f1": 0.7019248305852567,
+      "weighted_precision": 0.8197976388640792,
+      "weighted_recall": 0.8031848828956707,
+      "weighted_f1": 0.7960275627310982,
+      "roc_auc_ovr_macro": 0.9348365478085645,
+      "precision": 0.7624671244856895,
+      "recall": 0.6778346801000458,
+      "f1": 0.7019248305852567,
+      "false_positive_rate": 0.07846771702193389,
+      "false_negative_rate": 0.24912335385334683,
+      "attack_detection": {
+        "accuracy": 0.8243878637331441,
+        "precision": 0.9267166762839008,
+        "recall": 0.7508766461466532,
+        "f1": 0.8295811631010288,
+        "false_positive_rate": 0.07846771702193389,
+        "false_negative_rate": 0.24912335385334683,
+        "roc_auc": 0.9589337214468769,
+        "tp": 9636,
+        "tn": 8949,
+        "fp": 762,
+        "fn": 3197
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.6257383966244726,
+      "confusion_matrix": [
+        [
+          1392,
+          84,
+          663,
+          7,
+          6
+        ],
+        [
+          1276,
+          3034,
+          32,
+          2,
+          0
+        ],
+        [
+          228,
+          177,
+          1780,
+          216,
+          1
+        ],
+        [
+          1670,
+          0,
+          21,
+          1176,
+          18
+        ],
+        [
+          23,
+          0,
+          0,
+          11,
+          33
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.30333405970799737,
+          "recall": 0.6468401486988847,
+          "f1": 0.4129951045838896,
+          "support": 2152
+        },
+        "DoS": {
+          "precision": 0.9207890743550835,
+          "recall": 0.6984346224677717,
+          "f1": 0.7943448095300432,
+          "support": 4344
+        },
+        "Probe": {
+          "precision": 0.7131410256410257,
+          "recall": 0.7410491257285595,
+          "f1": 0.726827276439363,
+          "support": 2402
+        },
+        "R2L": {
+          "precision": 0.8328611898016998,
+          "recall": 0.4076256499133449,
+          "f1": 0.5473586222946242,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.5689655172413793,
+          "recall": 0.4925373134328358,
+          "f1": 0.528,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.6678181733494373,
+      "macro_recall": 0.5972973720482793,
+      "macro_f1": 0.601905162569584,
+      "weighted_precision": 0.7431706836550982,
+      "weighted_recall": 0.6257383966244726,
+      "weighted_f1": 0.6497674313072049,
+      "roc_auc_ovr_macro": 0.873929416369241,
+      "precision": 0.6678181733494373,
+      "recall": 0.5972973720482793,
+      "f1": 0.601905162569584,
+      "false_positive_rate": 0.35315985130111527,
+      "false_negative_rate": 0.3296555990925964,
+      "attack_detection": {
+        "accuracy": 0.6660759493670886,
+        "precision": 0.8953312215948217,
+        "recall": 0.6703444009074035,
+        "f1": 0.7666725632407572,
+        "false_positive_rate": 0.35315985130111527,
+        "false_negative_rate": 0.3296555990925964,
+        "roc_auc": 0.784339204764559,
+        "tp": 6501,
+        "tn": 1392,
+        "fp": 760,
+        "fn": 3197
+      }
+    }
+  },
+  "history": {
+    "accuracy": [
+      0.9605538845062256,
+      0.9812523722648621,
+      0.9864596128463745,
+      0.9890708923339844,
+      0.990614652633667,
+      0.9917897582054138,
+      0.9923734664916992,
+      0.9932336211204529,
+      0.9938864707946777,
+      0.9942167401313782
+    ],
+    "loss": [
+      0.1292387992143631,
+      0.0545090027153492,
+      0.0388769656419754,
+      0.03104197420179844,
+      0.027019180357456207,
+      0.023836776614189148,
+      0.021079309284687042,
+      0.019635982811450958,
+      0.017839962616562843,
+      0.01674702949821949
+    ],
+    "val_accuracy": [
+      0.9860295057296753,
+      0.9893633723258972,
+      0.9933322668075562,
+      0.9939672946929932,
+      0.9950785636901855,
+      0.9957929849624634,
+      0.9957929849624634,
+      0.9959517121315002,
+      0.9960311055183411,
+      0.9962692260742188
+    ],
+    "val_loss": [
+      0.04124779254198074,
+      0.03336203843355179,
+      0.023291902616620064,
+      0.02396308444440365,
+      0.01722349226474762,
+      0.01469465997070074,
+      0.014294024556875229,
+      0.013609005138278008,
+      0.012665633112192154,
+      0.013599417172372341
+    ]
+  },
+  "id": "full-multiclass-cnn-gan",
+  "version": 2,
+  "artifact": "model.keras",
+  "path": "full-multiclass-cnn-gan/v2"
+}

@@ -1,0 +1,30 @@
+# AI-Based Network IDS - runtime dependencies (Python 3.12, Windows/Linux/macOS)
+# Versions in comments are the ones this build was verified with.
+
+# Data + classical ML
+numpy>=1.26            # 2.5.3
+pandas>=2.2            # 3.0.6
+# Pinned: the shipped model artifacts (models/*.joblib) are pickles that must be
+# loaded with the same scikit-learn version. If you change it, retrain with
+# `python scripts/train_models.py` (setup.py does this automatically on mismatch).
+scikit-learn==1.9.1
+joblib>=1.3            # 1.6.0
+
+# Deep learning (1D-CNN + conditional WGAN-GP). Optional: without it the app
+# runs with the classical models and reports the CNN/GAN as unavailable.
+tensorflow>=2.17       # 2.21.0 (Windows: CPU build, no extra steps)
+
+# Backend API + live updates
+fastapi>=0.110         # 0.142.2
+uvicorn[standard]>=0.29  # 0.53.0 (includes websockets)
+
+# Packet capture / PCAP parsing (live capture on Windows also needs Npcap)
+scapy>=2.5             # 2.8.0
+
+# System health metrics
+psutil>=5.9            # 7.2.2
+
+# Original project: notebooks + script.py
+matplotlib>=3.8
+seaborn>=0.13
+rich>=13.7

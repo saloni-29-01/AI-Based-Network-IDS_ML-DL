@@ -1,0 +1,409 @@
+{
+  "name": "Logistic Regression (multiclass, full features)",
+  "algo": "lr",
+  "task": "multiclass",
+  "feature_set": "full",
+  "variant": null,
+  "classes": [
+    "normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 41,
+  "n_inputs": 122,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:36:48+00:00",
+  "training_seconds": 17.55,
+  "train_rows": 113375,
+  "train_class_counts": {
+    "normal": 60608,
+    "DoS": 41334,
+    "Probe": 10490,
+    "R2L": 896,
+    "U2R": 47
+  },
+  "hyperparameters": {
+    "C": 1.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 2000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": null,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9942054294332434,
+      "confusion_matrix": [
+        [
+          6700,
+          11,
+          14,
+          10,
+          0
+        ],
+        [
+          2,
+          4591,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          0,
+          1148,
+          0,
+          0
+        ],
+        [
+          14,
+          0,
+          0,
+          84,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          2
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9948032665181886,
+          "recall": 0.9948032665181886,
+          "f1": 0.9948032665181886,
+          "support": 6735
+        },
+        "DoS": {
+          "precision": 0.9976097348978705,
+          "recall": 0.9995645547572393,
+          "f1": 0.9985861881457314,
+          "support": 4593
+        },
+        "Probe": {
+          "precision": 0.9879518072289156,
+          "recall": 0.9845626072041166,
+          "f1": 0.9862542955326461,
+          "support": 1166
+        },
+        "R2L": {
+          "precision": 0.875,
+          "recall": 0.8484848484848485,
+          "f1": 0.8615384615384616,
+          "support": 99
+        },
+        "U2R": {
+          "precision": 0.6666666666666666,
+          "recall": 0.4,
+          "f1": 0.5,
+          "support": 5
+        }
+      },
+      "macro_precision": 0.9044062950623284,
+      "macro_recall": 0.8454830553928787,
+      "macro_f1": 0.8682364423470055,
+      "weighted_precision": 0.9941206265239061,
+      "weighted_recall": 0.9942054294332434,
+      "weighted_f1": 0.9941475772691473,
+      "roc_auc_ovr_macro": 0.9985393012402433,
+      "precision": 0.9044062950623284,
+      "recall": 0.8454830553928787,
+      "f1": 0.8682364423470055,
+      "false_positive_rate": 0.005196733481811433,
+      "false_negative_rate": 0.005969640115981579,
+      "attack_detection": {
+        "accuracy": 0.9944435624702334,
+        "precision": 0.9940303598840184,
+        "recall": 0.9940303598840184,
+        "f1": 0.9940303598840184,
+        "false_positive_rate": 0.005196733481811433,
+        "false_negative_rate": 0.005969640115981579,
+        "roc_auc": 0.9994482783770633,
+        "tp": 5828,
+        "tn": 6700,
+        "fp": 35,
+        "fn": 35
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.7400638750887154,
+      "confusion_matrix": [
+        [
+          8968,
+          72,
+          666,
+          1,
+          4
+        ],
+        [
+          1500,
+          5933,
+          27,
+          0,
+          0
+        ],
+        [
+          445,
+          160,
+          1694,
+          122,
+          0
+        ],
+        [
+          2796,
+          2,
+          9,
+          78,
+          0
+        ],
+        [
+          51,
+          0,
+          0,
+          5,
+          11
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6517441860465116,
+          "recall": 0.923488827103285,
+          "f1": 0.7641770695752205,
+          "support": 9711
+        },
+        "DoS": {
+          "precision": 0.9620561050754013,
+          "recall": 0.7953083109919571,
+          "f1": 0.8707712629338813,
+          "support": 7460
+        },
+        "Probe": {
+          "precision": 0.7070116861435726,
+          "recall": 0.6997108632796365,
+          "f1": 0.7033423292505709,
+          "support": 2421
+        },
+        "R2L": {
+          "precision": 0.3786407766990291,
+          "recall": 0.02703639514731369,
+          "f1": 0.050469103849886766,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.7333333333333333,
+          "recall": 0.16417910447761194,
+          "f1": 0.2682926829268293,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.6865572174595695,
+      "macro_recall": 0.5219447001999609,
+      "macro_f1": 0.5314104897072778,
+      "weighted_precision": 0.7256570972686209,
+      "weighted_recall": 0.7400638750887154,
+      "weighted_f1": 0.7001085831090478,
+      "roc_auc_ovr_macro": 0.916419796390889,
+      "precision": 0.6865572174595695,
+      "recall": 0.5219447001999609,
+      "f1": 0.5314104897072778,
+      "false_positive_rate": 0.07651117289671507,
+      "false_negative_rate": 0.3734122964232837,
+      "attack_detection": {
+        "accuracy": 0.7544801277501775,
+        "precision": 0.9154143897996357,
+        "recall": 0.6265877035767162,
+        "f1": 0.7439515196373224,
+        "false_positive_rate": 0.07651117289671507,
+        "false_negative_rate": 0.3734122964232837,
+        "roc_auc": 0.9077381080626665,
+        "tp": 8041,
+        "tn": 8968,
+        "fp": 743,
+        "fn": 4792
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.5055696202531645,
+      "confusion_matrix": [
+        [
+          1410,
+          72,
+          665,
+          1,
+          4
+        ],
+        [
+          1500,
+          2817,
+          27,
+          0,
+          0
+        ],
+        [
+          445,
+          160,
+          1675,
+          122,
+          0
+        ],
+        [
+          2796,
+          2,
+          9,
+          78,
+          0
+        ],
+        [
+          51,
+          0,
+          0,
+          5,
+          11
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.2273460174137375,
+          "recall": 0.6552044609665427,
+          "f1": 0.33756284414651666,
+          "support": 2152
+        },
+        "DoS": {
+          "precision": 0.9233038348082596,
+          "recall": 0.6484806629834254,
+          "f1": 0.761866125760649,
+          "support": 4344
+        },
+        "Probe": {
+          "precision": 0.70496632996633,
+          "recall": 0.6973355537052456,
+          "f1": 0.7011301799916283,
+          "support": 2402
+        },
+        "R2L": {
+          "precision": 0.3786407766990291,
+          "recall": 0.02703639514731369,
+          "f1": 0.050469103849886766,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.7333333333333333,
+          "recall": 0.16417910447761194,
+          "f1": 0.2682926829268293,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.5935180584441379,
+      "macro_recall": 0.4384472354560279,
+      "macro_f1": 0.423864187335102,
+      "weighted_precision": 0.6189807246051139,
+      "weighted_recall": 0.5055696202531645,
+      "weighted_f1": 0.4965126884059473,
+      "roc_auc_ovr_macro": 0.8303573654836949,
+      "precision": 0.5935180584441379,
+      "recall": 0.4384472354560279,
+      "f1": 0.423864187335102,
+      "false_positive_rate": 0.3447955390334573,
+      "false_negative_rate": 0.49412249948442977,
+      "attack_detection": {
+        "accuracy": 0.5329957805907173,
+        "precision": 0.8686260623229461,
+        "recall": 0.5058775005155702,
+        "f1": 0.6393848559885312,
+        "false_positive_rate": 0.3447955390334573,
+        "false_negative_rate": 0.49412249948442977,
+        "roc_auc": 0.6331334077236636,
+        "tp": 4906,
+        "tn": 1410,
+        "fp": 742,
+        "fn": 4792
+      }
+    }
+  },
+  "history": null,
+  "id": "full-multiclass-lr",
+  "version": 1,
+  "artifact": "model.joblib",
+  "path": "full-multiclass-lr/v1"
+}

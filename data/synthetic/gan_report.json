@@ -1,0 +1,938 @@
+{
+  "generated_at": "2026-10-07T12:37:03",
+  "architecture": "Conditional WGAN-GP (gradient penalty, Gumbel-softmax categorical heads)",
+  "epochs": 60,
+  "train_seconds": 685.8,
+  "loss_curve": [
+    {
+      "epoch": 1,
+      "wasserstein": 1.8463,
+      "generator_loss": -1.6432
+    },
+    {
+      "epoch": 2,
+      "wasserstein": 1.2966,
+      "generator_loss": -1.8102
+    },
+    {
+      "epoch": 3,
+      "wasserstein": 0.6244,
+      "generator_loss": -1.0941
+    },
+    {
+      "epoch": 4,
+      "wasserstein": 0.4936,
+      "generator_loss": -0.6722
+    },
+    {
+      "epoch": 5,
+      "wasserstein": 0.4255,
+      "generator_loss": -0.3567
+    },
+    {
+      "epoch": 6,
+      "wasserstein": 0.3869,
+      "generator_loss": -0.2174
+    },
+    {
+      "epoch": 7,
+      "wasserstein": 0.3561,
+      "generator_loss": -0.295
+    },
+    {
+      "epoch": 8,
+      "wasserstein": 0.3313,
+      "generator_loss": -0.4035
+    },
+    {
+      "epoch": 9,
+      "wasserstein": 0.3195,
+      "generator_loss": -0.271
+    },
+    {
+      "epoch": 10,
+      "wasserstein": 0.2987,
+      "generator_loss": -0.2053
+    },
+    {
+      "epoch": 11,
+      "wasserstein": 0.2798,
+      "generator_loss": -0.1787
+    },
+    {
+      "epoch": 12,
+      "wasserstein": 0.2709,
+      "generator_loss": -0.1058
+    },
+    {
+      "epoch": 13,
+      "wasserstein": 0.2666,
+      "generator_loss": -0.0271
+    },
+    {
+      "epoch": 14,
+      "wasserstein": 0.2593,
+      "generator_loss": -0.0335
+    },
+    {
+      "epoch": 15,
+      "wasserstein": 0.2513,
+      "generator_loss": -0.0256
+    },
+    {
+      "epoch": 16,
+      "wasserstein": 0.2437,
+      "generator_loss": -0.009
+    },
+    {
+      "epoch": 17,
+      "wasserstein": 0.2361,
+      "generator_loss": 0.0643
+    },
+    {
+      "epoch": 18,
+      "wasserstein": 0.2291,
+      "generator_loss": 0.0458
+    },
+    {
+      "epoch": 19,
+      "wasserstein": 0.2255,
+      "generator_loss": 0.0818
+    },
+    {
+      "epoch": 20,
+      "wasserstein": 0.2174,
+      "generator_loss": 0.0475
+    },
+    {
+      "epoch": 21,
+      "wasserstein": 0.214,
+      "generator_loss": 0.035
+    },
+    {
+      "epoch": 22,
+      "wasserstein": 0.2102,
+      "generator_loss": 0.0673
+    },
+    {
+      "epoch": 23,
+      "wasserstein": 0.2032,
+      "generator_loss": 0.085
+    },
+    {
+      "epoch": 24,
+      "wasserstein": 0.1996,
+      "generator_loss": 0.0604
+    },
+    {
+      "epoch": 25,
+      "wasserstein": 0.1971,
+      "generator_loss": 0.0826
+    },
+    {
+      "epoch": 26,
+      "wasserstein": 0.1922,
+      "generator_loss": 0.0563
+    },
+    {
+      "epoch": 27,
+      "wasserstein": 0.1918,
+      "generator_loss": 0.064
+    },
+    {
+      "epoch": 28,
+      "wasserstein": 0.1914,
+      "generator_loss": 0.0948
+    },
+    {
+      "epoch": 29,
+      "wasserstein": 0.1902,
+      "generator_loss": 0.1238
+    },
+    {
+      "epoch": 30,
+      "wasserstein": 0.1859,
+      "generator_loss": 0.1633
+    },
+    {
+      "epoch": 31,
+      "wasserstein": 0.1843,
+      "generator_loss": 0.1388
+    },
+    {
+      "epoch": 32,
+      "wasserstein": 0.1827,
+      "generator_loss": 0.1726
+    },
+    {
+      "epoch": 33,
+      "wasserstein": 0.1795,
+      "generator_loss": 0.1393
+    },
+    {
+      "epoch": 34,
+      "wasserstein": 0.1765,
+      "generator_loss": 0.1081
+    },
+    {
+      "epoch": 35,
+      "wasserstein": 0.1776,
+      "generator_loss": 0.1057
+    },
+    {
+      "epoch": 36,
+      "wasserstein": 0.1727,
+      "generator_loss": 0.0854
+    },
+    {
+      "epoch": 37,
+      "wasserstein": 0.1769,
+      "generator_loss": 0.066
+    },
+    {
+      "epoch": 38,
+      "wasserstein": 0.1742,
+      "generator_loss": 0.0479
+    },
+    {
+      "epoch": 39,
+      "wasserstein": 0.1711,
+      "generator_loss": -0.0014
+    },
+    {
+      "epoch": 40,
+      "wasserstein": 0.1691,
+      "generator_loss": 0.0606
+    },
+    {
+      "epoch": 41,
+      "wasserstein": 0.1682,
+      "generator_loss": -0.005
+    },
+    {
+      "epoch": 42,
+      "wasserstein": 0.1659,
+      "generator_loss": -0.0397
+    },
+    {
+      "epoch": 43,
+      "wasserstein": 0.1653,
+      "generator_loss": -0.0307
+    },
+    {
+      "epoch": 44,
+      "wasserstein": 0.1628,
+      "generator_loss": -0.0138
+    },
+    {
+      "epoch": 45,
+      "wasserstein": 0.1625,
+      "generator_loss": -0.0881
+    },
+    {
+      "epoch": 46,
+      "wasserstein": 0.1638,
+      "generator_loss": -0.0844
+    },
+    {
+      "epoch": 47,
+      "wasserstein": 0.1623,
+      "generator_loss": -0.0901
+    },
+    {
+      "epoch": 48,
+      "wasserstein": 0.1594,
+      "generator_loss": -0.1058
+    },
+    {
+      "epoch": 49,
+      "wasserstein": 0.159,
+      "generator_loss": -0.1223
+    },
+    {
+      "epoch": 50,
+      "wasserstein": 0.1588,
+      "generator_loss": -0.106
+    },
+    {
+      "epoch": 51,
+      "wasserstein": 0.1569,
+      "generator_loss": -0.1465
+    },
+    {
+      "epoch": 52,
+      "wasserstein": 0.1553,
+      "generator_loss": -0.2164
+    },
+    {
+      "epoch": 53,
+      "wasserstein": 0.1553,
+      "generator_loss": -0.2474
+    },
+    {
+      "epoch": 54,
+      "wasserstein": 0.155,
+      "generator_loss": -0.2685
+    },
+    {
+      "epoch": 55,
+      "wasserstein": 0.152,
+      "generator_loss": -0.2482
+    },
+    {
+      "epoch": 56,
+      "wasserstein": 0.1529,
+      "generator_loss": -0.2129
+    },
+    {
+      "epoch": 57,
+      "wasserstein": 0.1506,
+      "generator_loss": -0.2804
+    },
+    {
+      "epoch": 58,
+      "wasserstein": 0.1523,
+      "generator_loss": -0.305
+    },
+    {
+      "epoch": 59,
+      "wasserstein": 0.1502,
+      "generator_loss": -0.3259
+    },
+    {
+      "epoch": 60,
+      "wasserstein": 0.1504,
+      "generator_loss": -0.2768
+    }
+  ],
+  "classes_augmented": [
+    "R2L",
+    "U2R"
+  ],
+  "synthetic_total": 16828,
+  "class_balance_before": {
+    "normal": 67343,
+    "DoS": 45927,
+    "Probe": 11656,
+    "R2L": 995,
+    "U2R": 52
+  },
+  "class_balance_after": {
+    "normal": 67343,
+    "DoS": 45927,
+    "Probe": 11656,
+    "R2L": 16835,
+    "U2R": 1040
+  },
+  "per_class": {
+    "R2L": {
+      "generated": 20592,
+      "valid": 20592,
+      "invalid": 0,
+      "invalid_breakdown": {
+        "negative": 0,
+        "nan": 0,
+        "rate_gt_1": 0,
+        "bad_protocol": 0,
+        "bad_flag": 0
+      },
+      "duplicates_of_real": 1,
+      "internal_duplicates": 17,
+      "unseen_service_rate": 0.0,
+      "validity_rate": 1.0,
+      "duplicate_rate": 0.001,
+      "distribution_closeness": 0.881,
+      "quality_score": 96.4,
+      "feature_distribution": {
+        "duration": {
+          "real_mean": 633.417,
+          "synth_mean": 841.721,
+          "real_std": 2231.414,
+          "synth_std": 4087.354,
+          "mean_diff_norm": 0.073
+        },
+        "src_bytes": {
+          "real_mean": 307727.301,
+          "synth_mean": 1341137.089,
+          "real_std": 1214355.694,
+          "synth_std": 14782560.636,
+          "mean_diff_norm": 0.679
+        },
+        "dst_bytes": {
+          "real_mean": 81822.026,
+          "synth_mean": 2026676.134,
+          "real_std": 629561.632,
+          "synth_std": 32246836.05,
+          "mean_diff_norm": 2.734
+        },
+        "land": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "wrong_fragment": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "urgent": {
+          "real_mean": 0.003,
+          "synth_mean": 0.0,
+          "real_std": 0.071,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.041
+        },
+        "hot": {
+          "real_mean": 8.335,
+          "synth_mean": 7.919,
+          "real_std": 12.367,
+          "synth_std": 12.006,
+          "mean_diff_norm": 0.02
+        },
+        "num_failed_logins": {
+          "real_mean": 0.056,
+          "synth_mean": 0.009,
+          "real_std": 0.271,
+          "synth_std": 0.169,
+          "mean_diff_norm": 0.146
+        },
+        "logged_in": {
+          "real_mean": 0.914,
+          "synth_mean": 0.91,
+          "real_std": 0.281,
+          "synth_std": 0.286,
+          "mean_diff_norm": 0.003
+        },
+        "num_compromised": {
+          "real_mean": 0.077,
+          "synth_mean": 0.081,
+          "real_std": 1.48,
+          "synth_std": 1.967,
+          "mean_diff_norm": 0.003
+        },
+        "root_shell": {
+          "real_mean": 0.006,
+          "synth_mean": 0.008,
+          "real_std": 0.077,
+          "synth_std": 0.09,
+          "mean_diff_norm": 0.025
+        },
+        "su_attempted": {
+          "real_mean": 0.001,
+          "synth_mean": 0.0,
+          "real_std": 0.032,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.031
+        },
+        "num_root": {
+          "real_mean": 0.112,
+          "synth_mean": 0.011,
+          "real_std": 2.169,
+          "synth_std": 0.291,
+          "mean_diff_norm": 0.044
+        },
+        "num_file_creations": {
+          "real_mean": 0.035,
+          "synth_mean": 0.001,
+          "real_std": 0.693,
+          "synth_std": 0.07,
+          "mean_diff_norm": 0.047
+        },
+        "num_shells": {
+          "real_mean": 0.004,
+          "synth_mean": 0.0,
+          "real_std": 0.078,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.049
+        },
+        "num_access_files": {
+          "real_mean": 0.01,
+          "synth_mean": 0.0,
+          "real_std": 0.109,
+          "synth_std": 0.012,
+          "mean_diff_norm": 0.083
+        },
+        "num_outbound_cmds": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "is_host_login": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "is_guest_login": {
+          "real_mean": 0.315,
+          "synth_mean": 0.309,
+          "real_std": 0.464,
+          "synth_std": 0.462,
+          "mean_diff_norm": 0.007
+        },
+        "count": {
+          "real_mean": 1.297,
+          "synth_mean": 1.264,
+          "real_std": 0.481,
+          "synth_std": 0.57,
+          "mean_diff_norm": 0.019
+        },
+        "srv_count": {
+          "real_mean": 2.457,
+          "synth_mean": 1.41,
+          "real_std": 12.745,
+          "synth_std": 0.878,
+          "mean_diff_norm": 0.069
+        },
+        "serror_rate": {
+          "real_mean": 0.012,
+          "synth_mean": 0.005,
+          "real_std": 0.1,
+          "synth_std": 0.066,
+          "mean_diff_norm": 0.058
+        },
+        "srv_serror_rate": {
+          "real_mean": 0.011,
+          "synth_mean": 0.005,
+          "real_std": 0.091,
+          "synth_std": 0.064,
+          "mean_diff_norm": 0.062
+        },
+        "rerror_rate": {
+          "real_mean": 0.052,
+          "synth_mean": 0.053,
+          "real_std": 0.22,
+          "synth_std": 0.219,
+          "mean_diff_norm": 0.005
+        },
+        "srv_rerror_rate": {
+          "real_mean": 0.052,
+          "synth_mean": 0.052,
+          "real_std": 0.22,
+          "synth_std": 0.218,
+          "mean_diff_norm": 0.001
+        },
+        "same_srv_rate": {
+          "real_mean": 0.997,
+          "synth_mean": 0.996,
+          "real_std": 0.04,
+          "synth_std": 0.035,
+          "mean_diff_norm": 0.001
+        },
+        "diff_srv_rate": {
+          "real_mean": 0.007,
+          "synth_mean": 0.008,
+          "real_std": 0.08,
+          "synth_std": 0.073,
+          "mean_diff_norm": 0.012
+        },
+        "srv_diff_host_rate": {
+          "real_mean": 0.017,
+          "synth_mean": 0.023,
+          "real_std": 0.119,
+          "synth_std": 0.131,
+          "mean_diff_norm": 0.04
+        },
+        "dst_host_count": {
+          "real_mean": 89.037,
+          "synth_mean": 84.466,
+          "real_std": 111.817,
+          "synth_std": 108.417,
+          "mean_diff_norm": 0.023
+        },
+        "dst_host_srv_count": {
+          "real_mean": 42.44,
+          "synth_mean": 39.552,
+          "real_std": 35.359,
+          "synth_std": 35.983,
+          "mean_diff_norm": 0.037
+        },
+        "dst_host_same_srv_rate": {
+          "real_mean": 0.727,
+          "synth_mean": 0.737,
+          "real_std": 0.362,
+          "synth_std": 0.349,
+          "mean_diff_norm": 0.009
+        },
+        "dst_host_diff_srv_rate": {
+          "real_mean": 0.021,
+          "synth_mean": 0.02,
+          "real_std": 0.068,
+          "synth_std": 0.048,
+          "mean_diff_norm": 0.011
+        },
+        "dst_host_same_src_port_rate": {
+          "real_mean": 0.597,
+          "synth_mean": 0.599,
+          "real_std": 0.473,
+          "synth_std": 0.475,
+          "mean_diff_norm": 0.002
+        },
+        "dst_host_srv_diff_host_rate": {
+          "real_mean": 0.086,
+          "synth_mean": 0.08,
+          "real_std": 0.107,
+          "synth_std": 0.092,
+          "mean_diff_norm": 0.03
+        },
+        "dst_host_serror_rate": {
+          "real_mean": 0.024,
+          "synth_mean": 0.014,
+          "real_std": 0.093,
+          "synth_std": 0.086,
+          "mean_diff_norm": 0.082
+        },
+        "dst_host_srv_serror_rate": {
+          "real_mean": 0.016,
+          "synth_mean": 0.011,
+          "real_std": 0.085,
+          "synth_std": 0.095,
+          "mean_diff_norm": 0.052
+        },
+        "dst_host_rerror_rate": {
+          "real_mean": 0.051,
+          "synth_mean": 0.052,
+          "real_std": 0.202,
+          "synth_std": 0.208,
+          "mean_diff_norm": 0.003
+        },
+        "dst_host_srv_rerror_rate": {
+          "real_mean": 0.047,
+          "synth_mean": 0.054,
+          "real_std": 0.202,
+          "synth_std": 0.22,
+          "mean_diff_norm": 0.025
+        }
+      },
+      "kept": 15840
+    },
+    "U2R": {
+      "generated": 1284,
+      "valid": 1284,
+      "invalid": 0,
+      "invalid_breakdown": {
+        "negative": 0,
+        "nan": 0,
+        "rate_gt_1": 0,
+        "bad_protocol": 0,
+        "bad_flag": 0
+      },
+      "duplicates_of_real": 0,
+      "internal_duplicates": 0,
+      "unseen_service_rate": 0.0,
+      "validity_rate": 1.0,
+      "duplicate_rate": 0.0,
+      "distribution_closeness": 0.0,
+      "quality_score": 70.0,
+      "feature_distribution": {
+        "duration": {
+          "real_mean": 80.942,
+          "synth_mean": 62.801,
+          "real_std": 119.347,
+          "synth_std": 112.273,
+          "mean_diff_norm": 0.091
+        },
+        "src_bytes": {
+          "real_mean": 906.231,
+          "synth_mean": 997.91,
+          "real_std": 1176.779,
+          "synth_std": 2372.894,
+          "mean_diff_norm": 0.044
+        },
+        "dst_bytes": {
+          "real_mean": 5141.962,
+          "synth_mean": 5801.427,
+          "real_std": 9984.105,
+          "synth_std": 7571.155,
+          "mean_diff_norm": 0.044
+        },
+        "land": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "wrong_fragment": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "urgent": {
+          "real_mean": 0.019,
+          "synth_mean": 0.009,
+          "real_std": 0.137,
+          "synth_std": 0.092,
+          "mean_diff_norm": 0.068
+        },
+        "hot": {
+          "real_mean": 1.404,
+          "synth_mean": 1.495,
+          "real_std": 1.522,
+          "synth_std": 2.081,
+          "mean_diff_norm": 0.031
+        },
+        "num_failed_logins": {
+          "real_mean": 0.019,
+          "synth_mean": 0.022,
+          "real_std": 0.137,
+          "synth_std": 0.161,
+          "mean_diff_norm": 0.016
+        },
+        "logged_in": {
+          "real_mean": 0.885,
+          "synth_mean": 0.88,
+          "real_std": 0.319,
+          "synth_std": 0.325,
+          "mean_diff_norm": 0.004
+        },
+        "num_compromised": {
+          "real_mean": 1.212,
+          "synth_mean": 1.558,
+          "real_std": 1.656,
+          "synth_std": 7.78,
+          "mean_diff_norm": 0.121
+        },
+        "root_shell": {
+          "real_mean": 0.5,
+          "synth_mean": 0.494,
+          "real_std": 0.5,
+          "synth_std": 0.5,
+          "mean_diff_norm": 0.006
+        },
+        "su_attempted": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "num_root": {
+          "real_mean": 0.788,
+          "synth_mean": 0.864,
+          "real_std": 2.282,
+          "synth_std": 4.23,
+          "mean_diff_norm": 0.025
+        },
+        "num_file_creations": {
+          "real_mean": 0.788,
+          "synth_mean": 0.737,
+          "real_std": 1.198,
+          "synth_std": 1.742,
+          "mean_diff_norm": 0.026
+        },
+        "num_shells": {
+          "real_mean": 0.135,
+          "synth_mean": 0.118,
+          "real_std": 0.44,
+          "synth_std": 0.417,
+          "mean_diff_norm": 0.03
+        },
+        "num_access_files": {
+          "real_mean": 0.019,
+          "synth_mean": 0.017,
+          "real_std": 0.137,
+          "synth_std": 0.167,
+          "mean_diff_norm": 0.013
+        },
+        "num_outbound_cmds": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "is_host_login": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "is_guest_login": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "count": {
+          "real_mean": 5.808,
+          "synth_mean": 3.095,
+          "real_std": 23.228,
+          "synth_std": 11.557,
+          "mean_diff_norm": 0.093
+        },
+        "srv_count": {
+          "real_mean": 1.269,
+          "synth_mean": 1.187,
+          "real_std": 0.624,
+          "synth_std": 0.574,
+          "mean_diff_norm": 0.043
+        },
+        "serror_rate": {
+          "real_mean": 0.038,
+          "synth_mean": 0.028,
+          "real_std": 0.19,
+          "synth_std": 0.145,
+          "mean_diff_norm": 0.044
+        },
+        "srv_serror_rate": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "rerror_rate": {
+          "real_mean": 0.01,
+          "synth_mean": 0.0,
+          "real_std": 0.069,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.125
+        },
+        "srv_rerror_rate": {
+          "real_mean": 0.019,
+          "synth_mean": 0.001,
+          "real_std": 0.137,
+          "synth_std": 0.028,
+          "mean_diff_norm": 0.116
+        },
+        "same_srv_rate": {
+          "real_mean": 0.932,
+          "synth_mean": 0.939,
+          "real_std": 0.214,
+          "synth_std": 0.179,
+          "mean_diff_norm": 0.006
+        },
+        "diff_srv_rate": {
+          "real_mean": 0.064,
+          "synth_mean": 0.068,
+          "real_std": 0.219,
+          "synth_std": 0.22,
+          "mean_diff_norm": 0.014
+        },
+        "srv_diff_host_rate": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.007,
+          "mean_diff_norm": 280.374
+        },
+        "dst_host_count": {
+          "real_mean": 47.769,
+          "synth_mean": 43.567,
+          "real_std": 95.263,
+          "synth_std": 88.108,
+          "mean_diff_norm": 0.029
+        },
+        "dst_host_srv_count": {
+          "real_mean": 9.885,
+          "synth_mean": 7.363,
+          "real_std": 21.722,
+          "synth_std": 19.191,
+          "mean_diff_norm": 0.08
+        },
+        "dst_host_same_srv_rate": {
+          "real_mean": 0.781,
+          "synth_mean": 0.772,
+          "real_std": 0.396,
+          "synth_std": 0.396,
+          "mean_diff_norm": 0.008
+        },
+        "dst_host_diff_srv_rate": {
+          "real_mean": 0.04,
+          "synth_mean": 0.049,
+          "real_std": 0.145,
+          "synth_std": 0.16,
+          "mean_diff_norm": 0.05
+        },
+        "dst_host_same_src_port_rate": {
+          "real_mean": 0.568,
+          "synth_mean": 0.579,
+          "real_std": 0.425,
+          "synth_std": 0.408,
+          "mean_diff_norm": 0.011
+        },
+        "dst_host_srv_diff_host_rate": {
+          "real_mean": 0.081,
+          "synth_mean": 0.084,
+          "real_std": 0.211,
+          "synth_std": 0.222,
+          "mean_diff_norm": 0.009
+        },
+        "dst_host_serror_rate": {
+          "real_mean": 0.0,
+          "synth_mean": 0.0,
+          "real_std": 0.0,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.0
+        },
+        "dst_host_srv_serror_rate": {
+          "real_mean": 0.005,
+          "synth_mean": 0.0,
+          "real_std": 0.034,
+          "synth_std": 0.0,
+          "mean_diff_norm": 0.123
+        },
+        "dst_host_rerror_rate": {
+          "real_mean": 0.04,
+          "synth_mean": 0.039,
+          "real_std": 0.14,
+          "synth_std": 0.141,
+          "mean_diff_norm": 0.005
+        },
+        "dst_host_srv_rerror_rate": {
+          "real_mean": 0.019,
+          "synth_mean": 0.006,
+          "real_std": 0.052,
+          "synth_std": 0.068,
+          "mean_diff_norm": 0.188
+        }
+      },
+      "kept": 988
+    }
+  },
+  "retrain": {
+    "variant": "gan",
+    "baseline_test": {
+      "accuracy": 0.7459634492547906,
+      "macro_f1": 0.49054525682936856
+    },
+    "augmented_test": {
+      "accuracy": 0.7586053938963804,
+      "macro_f1": 0.5862454572006882
+    },
+    "per_class_recall": {
+      "normal": {
+        "baseline": 0.974,
+        "augmented": 0.973
+      },
+      "DoS": {
+        "baseline": 0.774,
+        "augmented": 0.777
+      },
+      "Probe": {
+        "baseline": 0.603,
+        "augmented": 0.607
+      },
+      "R2L": {
+        "baseline": 0.044,
+        "augmented": 0.13
+      },
+      "U2R": {
+        "baseline": 0.015,
+        "augmented": 0.254
+      }
+    }
+  }
+}

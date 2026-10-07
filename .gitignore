@@ -1,0 +1,43 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Pickles written by the legacy script.py into the working directory ---
+/*.pkl
+*.h5
+
+# --- v2.0 runtime data (regenerated automatically) ---
+data/ids.db
+data/ids.db-*
+data/synthetic/synthetic_samples.csv
+data/synthetic/gan_model/
+reports/
+.pytest_cache/
+
+# Trained models (models/) ARE tracked: they are small (~20 MB) and let a
+# fresh clone run the demo without retraining. To keep them out of git,
+# uncomment the next line and run `python setup.py` after cloning.
+# models/
+
+# --- TensorBoard / training logs / app logs ---
+logs/
+*.tfevents.*
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Environment / secrets ---
+.env

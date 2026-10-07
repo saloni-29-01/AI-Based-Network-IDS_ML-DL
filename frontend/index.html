@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Network IDS</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">IDS</div><div><h1>AI Network IDS</h1><small>ML / DL intrusion detection</small></div></div>
+    <nav class="nav" id="nav">
+      <button data-view="dashboard" class="active"><span class="ico">◧</span>Dashboard</button>
+      <button data-view="live"><span class="ico">≋</span>Live Monitor</button>
+      <button data-view="threats"><span class="ico">⚠</span>Threats</button>
+      <button data-view="analytics"><span class="ico">▤</span>Analytics</button>
+      <button data-view="models"><span class="ico">◈</span>Models</button>
+      <button data-view="gan"><span class="ico">✦</span>GAN Lab</button>
+      <button data-view="alerts"><span class="ico">🔔</span>Alerts <span class="pill" id="navAlertCount" style="margin-left:auto">0</span></button>
+      <button data-view="system"><span class="ico">⚙</span>System</button>
+    </nav>
+    <div class="sysmini">
+      <div class="row"><span>Engine</span><b id="miniEngine">—</b></div>
+      <div class="row"><span>CPU</span><b id="miniCpu">—</b></div>
+      <div class="row"><span>Memory</span><b id="miniMem">—</b></div>
+      <div class="row"><span>Socket</span><b id="miniWs">connecting</b></div>
+      <div class="row"><span>p95 latency</span><b id="miniLat">—</b></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h2 id="viewTitle">Dashboard</h2>
+      <div class="statusband"><span class="dot idle" id="modeDot"></span><span id="modeBanner">IDLE - no traffic source running</span></div>
+      <div class="spacer"></div>
+      <button class="btn primary" id="btnDemo" title="Load models, initialise DB and start a dataset simulation">▶ Start Full Demo</button>
+      <button class="btn danger" id="btnStop">■ Stop</button>
+      <button class="btn" id="btnTheme" title="Toggle light / dark">Theme</button>
+    </div>
+
+    <!-- source controls (shown on every page) -->
+    <div class="card" style="margin-bottom:16px">
+      <div class="modebar">
+        <div class="seg" id="modeSeg">
+          <button data-mode="dataset" class="active">Dataset Simulation</button>
+          <button data-mode="flow_replay">Flow Replay</button>
+          <button data-mode="pcap">PCAP Replay</button>
+          <button data-mode="live">Live Capture</button>
+        </div>
+        <label class="field" id="fPcap" style="display:none">PCAP file<select id="pcapSel"></select></label>
+        <label class="field" id="fIface" style="display:none">Interface<select id="ifaceSel"><option value="">default</option></select></label>
+        <label class="field" id="fRate">Rate (rec/s)<input id="rateIn" type="number" value="25" min="1" max="5000" style="width:90px"></label>
+        <label class="field">Speed<select id="speedSel"><option>0.5</option><option selected>1</option><option>2</option><option>5</option><option>10</option></select></label>
+        <button class="btn primary" id="btnStart">Start</button>
+        <button class="btn" id="btnPause">Pause</button>
+        <button class="btn" id="btnResume">Resume</button>
+        <div class="spacer"></div>
+        <div class="small muted" id="progressTxt"></div>
+      </div>
+      <div class="small muted" id="engineTxt" style="margin-top:8px"></div>
+      <div class="note" id="modeNote" style="display:none"></div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <section class="view active" id="view-dashboard">
+      <div class="grid cols-4">
+        <div class="card stat accent"><span class="k">Packets</span><span class="v" id="kPackets">0</span><span class="sub" id="kPps">0 pkt/s</span></div>
+        <div class="card stat"><span class="k">Flows / Records</span><span class="v" id="kEvents">0</span><span class="sub" id="kEps">0 /s</span></div>
+        <div class="card stat danger"><span class="k">Attacks</span><span class="v" id="kAttacks">0</span><span class="sub" id="kSusp">0 suspicious</span></div>
+        <div class="card stat warn"><span class="k">Alerts</span><span class="v" id="kAlerts">0</span><span class="sub" id="kAlertSub">deduplicated</span></div>
+      </div>
+      <div class="grid cols-3" style="margin-top:16px">
+        <div class="card" style="grid-column: span 2"><h3>Traffic &amp; detections (last 60 s) <span class="pill">real backend data</span></h3><canvas id="chTraffic" class="chart-md"></canvas></div>
+        <div class="card"><h3>Threat levels</h3><canvas id="chLevels" class="chart-md"></canvas></div>
+      </div>
+      <div class="grid cols-3" style="margin-top:16px">
+        <div class="card"><h3>Attack distribution</h3><canvas id="chClasses" class="chart-md"></canvas></div>
+        <div class="card"><h3>Protocols</h3><canvas id="chProto" class="chart-md"></canvas></div>
+        <div class="card"><h3>Simulation ground-truth check</h3>
+          <div class="stat ok"><span class="k">Running accuracy vs NSL-KDD labels</span><span class="v" id="kSimAcc">—</span><span class="sub" id="kSimSub">only for dataset / flow replay</span></div>
+          <p class="small muted">Records replayed from the benchmark carry their true category, so accuracy is measured live, not claimed. Live capture has no ground truth.</p>
+        </div>
+      </div>
+      <div class="grid cols-2" style="margin-top:16px">
+        <div class="card"><h3>Live threat monitor</h3><div class="tbl-wrap" style="max-height:300px"><table class="tbl"><thead><tr><th>Time</th><th>Source</th><th>Destination</th><th>Proto</th><th>Threat</th><th>Risk</th></tr></thead><tbody id="tbDashEvents"></tbody></table></div></div>
+        <div class="card"><h3>Recent alerts <button class="btn sm" data-goto="alerts">View all</button></h3><div class="tbl-wrap" style="max-height:300px"><table class="tbl"><thead><tr><th>Severity</th><th>Class</th><th>Source</th><th>Count</th><th>Risk</th></tr></thead><tbody id="tbDashAlerts"></tbody></table></div></div>
+      </div>
+    </section>
+
+    <!-- LIVE MONITOR -->
+    <section class="view" id="view-live">
+      <div class="grid cols-2">
+        <div class="card"><h3>Packets per second</h3><canvas id="chPps" class="chart-sm"></canvas></div>
+        <div class="card"><h3>Bytes per second</h3><canvas id="chBps" class="chart-sm"></canvas></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Detection stream (flows / records) <input id="liveFilter" placeholder="filter…" style="background:var(--card2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:4px 8px"></h3>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Time</th><th>Source</th><th>Destination</th><th>Proto</th><th>Service</th><th>Flag</th><th>Verdict</th><th>Class</th><th>Conf.</th><th>Risk</th><th>Truth</th></tr></thead><tbody id="tbLive"></tbody></table></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Packet stream (latest captured / replayed packets)</h3>
+        <div class="tbl-wrap" style="max-height:260px"><table class="tbl"><thead><tr><th>Packet time</th><th>Source</th><th>Destination</th><th>Proto</th><th>Sport</th><th>Dport</th><th>Len</th><th>TCP flags</th></tr></thead><tbody id="tbPackets"></tbody></table></div>
+        <p class="small muted">Empty in dataset / flow-replay modes - those feed connection records, not packets.</p>
+      </div>
+    </section>
+
+    <!-- THREATS -->
+    <section class="view" id="view-threats">
+      <div class="grid cols-4">
+        <div class="card stat danger"><span class="k">Critical</span><span class="v" id="tCrit">0</span></div>
+        <div class="card stat" style="--x:1"><span class="k">High</span><span class="v" id="tHigh" style="color:var(--high)">0</span></div>
+        <div class="card stat warn"><span class="k">Medium</span><span class="v" id="tMed">0</span></div>
+        <div class="card stat"><span class="k">Low</span><span class="v" id="tLow" style="color:var(--low)">0</span></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Threat search</h3>
+        <div class="flex wrap">
+          <label class="field">Verdict<select id="thVerdict"><option value="">any</option><option>Attack</option><option>Suspicious</option><option>Normal</option></select></label>
+          <label class="field">Class<select id="thClass"><option value="">any</option><option>DoS</option><option>Probe</option><option>R2L</option><option>U2R</option><option>normal</option></select></label>
+          <label class="field">Protocol<select id="thProto"><option value="">any</option><option>tcp</option><option>udp</option><option>icmp</option></select></label>
+          <label class="field">Source IP<input id="thSrc" placeholder="contains…"></label>
+          <label class="field">Destination IP<input id="thDst" placeholder="contains…"></label>
+          <label class="field">Search<input id="thQ" placeholder="ip / service / class"></label>
+          <button class="btn primary" id="thGo">Search</button>
+          <span class="small muted" id="thCount"></span>
+        </div>
+        <div class="tbl-wrap" style="margin-top:12px"><table class="tbl"><thead><tr><th>ID</th><th>Time</th><th>Mode</th><th>Source</th><th>Destination</th><th>Proto</th><th>Service</th><th>Verdict</th><th>Class</th><th>Conf.</th><th>Risk</th></tr></thead><tbody id="tbThreats"></tbody></table></div>
+      </div>
+    </section>
+
+    <!-- ANALYTICS -->
+    <section class="view" id="view-analytics">
+      <div class="grid cols-2">
+        <div class="card"><h3>Attacks over time</h3><canvas id="chAttTime" class="chart-md"></canvas></div>
+        <div class="card"><h3>Severity distribution</h3><canvas id="chSev" class="chart-md"></canvas></div>
+        <div class="card"><h3>Top source IPs</h3><canvas id="chTopSrc" class="chart-md"></canvas></div>
+        <div class="card"><h3>Top destination IPs</h3><canvas id="chTopDst" class="chart-md"></canvas></div>
+        <div class="card"><h3>Most targeted services</h3><canvas id="chSvc" class="chart-md"></canvas></div>
+        <div class="card"><h3>Model monitoring (distribution shift)</h3><div id="driftBox" class="small"></div></div>
+      </div>
+    </section>
+
+    <!-- MODELS -->
+    <section class="view" id="view-models">
+      <div class="note">All metrics are computed by an actual evaluation run on the held-out NSL-KDD <b>KDDTest+</b> split (it contains attack types absent from training, so scores are lower than random-split scores). Nothing here is hard-coded.</div>
+      <div class="card"><h3>Model registry <span class="flex"><label class="field" style="flex-direction:row;align-items:center;gap:6px">Split<select id="mSplit"><option value="test">KDDTest+</option><option value="test21">KDDTest-21</option><option value="validation">Validation</option></select></label></span></h3>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Model</th><th>Task</th><th>Features</th><th>Ver.</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>FPR</th><th>ROC-AUC</th><th>Trained</th></tr></thead><tbody id="tbModels"></tbody></table></div>
+      </div>
+      <div class="grid cols-2" style="margin-top:16px">
+        <div class="card"><h3>Confusion matrix <select id="cmSel" style="background:var(--card2);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:3px"></select></h3><canvas id="chCM" class="chart-lg"></canvas><div id="perClass" class="small" style="margin-top:8px"></div></div>
+        <div class="card"><h3>Model feature importance (global, %, tree models)</h3><canvas id="chFI" class="chart-lg"></canvas><p class="small muted">Impurity-based importance aggregated back to the original NSL-KDD features. Describes the model, not causality.</p></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Model comparison (accuracy %, multiclass)</h3><canvas id="chModelCmp" class="chart-md"></canvas></div>
+    </section>
+
+    <!-- GAN LAB -->
+    <section class="view" id="view-gan">
+      <div class="grid cols-4">
+        <div class="card stat"><span class="k">Original samples</span><span class="v" id="gOrig">—</span></div>
+        <div class="card stat accent"><span class="k">Synthetic samples</span><span class="v" id="gSyn">—</span></div>
+        <div class="card stat"><span class="k">Classes augmented</span><span class="v" id="gCls" style="font-size:20px">—</span></div>
+        <div class="card stat ok"><span class="k">Quality score</span><span class="v" id="gQ">—</span><span class="sub">validity · duplicates · distribution</span></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Conditional WGAN-GP training</h3>
+        <div class="flex wrap">
+          <label class="field">Epochs<input id="gEpochs" type="number" value="60" min="1" max="500" style="width:80px"></label>
+          <label class="field">Per-class samples (blank = auto)<input id="gPer" type="number" min="1" style="width:120px"></label>
+          <label class="field" style="flex-direction:row;align-items:center;gap:6px"><input type="checkbox" id="gRetrain" checked>retrain RF+CNN for before/after</label>
+          <button class="btn primary" id="gTrain">Train GAN</button>
+          <span class="small muted" id="gStatus">status: —</span>
+        </div>
+        <div id="gLog" class="small mono muted" style="margin-top:10px;max-height:120px;overflow:auto"></div>
+      </div>
+      <div class="grid cols-2" style="margin-top:16px">
+        <div class="card"><h3>Class balance before / after</h3><canvas id="chGanBal" class="chart-md"></canvas></div>
+        <div class="card"><h3>Training loss (critic Wasserstein estimate)</h3><canvas id="chGanLoss" class="chart-md"></canvas></div>
+        <div class="card"><h3>Validation summary</h3><div id="gVal" class="small"></div></div>
+        <div class="card"><h3>Augmentation impact (KDDTest+, Random Forest)</h3><div id="gImpact" class="small"></div></div>
+      </div>
+    </section>
+
+    <!-- ALERTS -->
+    <section class="view" id="view-alerts">
+      <div class="card">
+        <h3>Alert management <span class="flex"><a class="btn sm" href="/api/export/alerts.csv">Export alerts CSV</a><a class="btn sm" href="/api/export/events.csv">Export events CSV</a><a class="btn sm" href="/api/export/report.html">Generate report</a></span></h3>
+        <div class="flex wrap">
+          <label class="field">Severity<select id="alSev"><option value="">any</option><option>CRITICAL</option><option>HIGH</option><option>MEDIUM</option><option>LOW</option></select></label>
+          <label class="field">Status<select id="alStatus"><option value="">any</option><option>New</option><option>Investigating</option><option>Resolved</option><option>Ignored</option></select></label>
+          <label class="field">Search<input id="alQ" placeholder="ip / class / service"></label>
+          <button class="btn primary" id="alGo">Apply</button>
+          <span class="small muted" id="alCount"></span>
+          <span class="small muted" id="alDedup"></span>
+        </div>
+        <div class="tbl-wrap" style="margin-top:12px;max-height:600px"><table class="tbl"><thead><tr><th>Alert</th><th>Last seen</th><th>Severity</th><th>Class</th><th>Source</th><th>Destination</th><th>Proto</th><th>Count</th><th>Conf.</th><th>Risk</th><th>Status</th></tr></thead><tbody id="tbAlerts"></tbody></table></div>
+      </div>
+    </section>
+
+    <!-- SYSTEM -->
+    <section class="view" id="view-system">
+      <div class="grid cols-4">
+        <div class="card stat"><span class="k">CPU</span><span class="v" id="sCpu">—</span><div class="health-bar"><span id="sCpuBar" style="width:0"></span></div></div>
+        <div class="card stat"><span class="k">Memory</span><span class="v" id="sMem">—</span><div class="health-bar"><span id="sMemBar" style="width:0"></span></div></div>
+        <div class="card stat"><span class="k">Database</span><span class="v" id="sDb" style="font-size:20px">—</span><span class="sub" id="sDbSub"></span></div>
+        <div class="card stat"><span class="k">Capture</span><span class="v" id="sCap" style="font-size:20px">—</span><span class="sub" id="sCapSub"></span></div>
+      </div>
+      <div class="grid cols-2" style="margin-top:16px">
+        <div class="card"><h3>Environment</h3><div class="kv" id="sEnv"></div></div>
+        <div class="card"><h3>Detection engines</h3><div class="kv" id="sEng"></div></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Application log <button class="btn sm" id="sRefresh">Refresh</button></h3><div id="sLogs" style="max-height:340px;overflow:auto"></div></div>
+    </section>
+  </main>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer"></aside>
+<div class="toast-host" id="toasts"></div>
+
+<script src="/static/js/charts.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

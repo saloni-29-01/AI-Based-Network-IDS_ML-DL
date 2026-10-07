@@ -1,0 +1,266 @@
+{
+  "name": "1D-CNN (binary, flow features)",
+  "algo": "cnn",
+  "task": "binary",
+  "feature_set": "flow",
+  "variant": null,
+  "classes": [
+    "normal",
+    "attack"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 28,
+  "n_inputs": 109,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:40:41+00:00",
+  "training_seconds": 82.0,
+  "train_rows": 113375,
+  "train_class_counts": {
+    "normal": 60608,
+    "attack": 52767
+  },
+  "hyperparameters": {
+    "epochs_max": 10,
+    "batch_size": 256,
+    "epochs_run": 10
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9976186696301,
+      "confusion_matrix": [
+        [
+          6721,
+          14
+        ],
+        [
+          16,
+          5847
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9976250556627579,
+          "recall": 0.9979213066072754,
+          "f1": 0.9977731591448931,
+          "support": 6735
+        },
+        "attack": {
+          "precision": 0.9976113291247227,
+          "recall": 0.9972710216612656,
+          "f1": 0.9974411463664279,
+          "support": 5863
+        }
+      },
+      "precision": 0.9976113291247227,
+      "recall": 0.9972710216612656,
+      "f1": 0.9974411463664279,
+      "false_positive_rate": 0.0020786933927245733,
+      "false_negative_rate": 0.0027289783387344363,
+      "roc_auc": 0.9999583916906966,
+      "attack_detection": {
+        "accuracy": 0.9976186696301,
+        "precision": 0.9976113291247227,
+        "recall": 0.9972710216612656,
+        "f1": 0.9974411463664279,
+        "false_positive_rate": 0.0020786933927245733,
+        "false_negative_rate": 0.0027289783387344363,
+        "roc_auc": 0.9999583916906966,
+        "tp": 5847,
+        "tn": 6721,
+        "fp": 14,
+        "fn": 16
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.810193399574166,
+      "confusion_matrix": [
+        [
+          9006,
+          705
+        ],
+        [
+          3574,
+          9259
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.7158982511923688,
+          "recall": 0.9274019153537226,
+          "f1": 0.8080391189269212,
+          "support": 9711
+        },
+        "attack": {
+          "precision": 0.9292452830188679,
+          "recall": 0.7214992597210317,
+          "f1": 0.8122998640171952,
+          "support": 12833
+        }
+      },
+      "precision": 0.9292452830188679,
+      "recall": 0.7214992597210317,
+      "f1": 0.8122998640171952,
+      "false_positive_rate": 0.07259808464627741,
+      "false_negative_rate": 0.27850074027896826,
+      "roc_auc": 0.9608279888801962,
+      "attack_detection": {
+        "accuracy": 0.810193399574166,
+        "precision": 0.9292452830188679,
+        "recall": 0.7214992597210317,
+        "f1": 0.8122998640171952,
+        "false_positive_rate": 0.07259808464627741,
+        "false_negative_rate": 0.27850074027896826,
+        "roc_auc": 0.9608279888801962,
+        "tp": 9259,
+        "tn": 9006,
+        "fp": 705,
+        "fn": 3574
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.6389029535864978,
+      "confusion_matrix": [
+        [
+          1447,
+          705
+        ],
+        [
+          3574,
+          6124
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.28818960366460866,
+          "recall": 0.6723977695167286,
+          "f1": 0.40345740973093547,
+          "support": 2152
+        },
+        "attack": {
+          "precision": 0.8967638014350564,
+          "recall": 0.6314704062693339,
+          "f1": 0.7410903370242633,
+          "support": 9698
+        }
+      },
+      "precision": 0.8967638014350564,
+      "recall": 0.6314704062693339,
+      "f1": 0.7410903370242633,
+      "false_positive_rate": 0.32760223048327136,
+      "false_negative_rate": 0.3685295937306661,
+      "roc_auc": 0.7954948074987294,
+      "attack_detection": {
+        "accuracy": 0.6389029535864978,
+        "precision": 0.8967638014350564,
+        "recall": 0.6314704062693339,
+        "f1": 0.7410903370242633,
+        "false_positive_rate": 0.32760223048327136,
+        "false_negative_rate": 0.3685295937306661,
+        "roc_auc": 0.7954948074987294,
+        "tp": 6124,
+        "tn": 1447,
+        "fp": 705,
+        "fn": 3574
+      }
+    }
+  },
+  "history": {
+    "accuracy": [
+      0.9767938256263733,
+      0.9905534982681274,
+      0.9934729933738708,
+      0.9945666790008545,
+      0.995395839214325,
+      0.9959073662757874,
+      0.9958544373512268,
+      0.9961279034614563,
+      0.9967276453971863,
+      0.9969040751457214
+    ],
+    "loss": [
+      0.07289481908082962,
+      0.030125996097922325,
+      0.022079406306147575,
+      0.018095407634973526,
+      0.014793186448514462,
+      0.013362773694097996,
+      0.012891593389213085,
+      0.011482810601592064,
+      0.010335499420762062,
+      0.009714326821267605
+    ],
+    "val_accuracy": [
+      0.9916653633117676,
+      0.9949992299079895,
+      0.9957135915756226,
+      0.9963486194610596,
+      0.9966661334037781,
+      0.9970630407333374,
+      0.9970630407333374,
+      0.9970630407333374,
+      0.997459888458252,
+      0.9976186752319336
+    ],
+    "val_loss": [
+      0.024950064718723297,
+      0.019909266382455826,
+      0.012903880327939987,
+      0.012993266806006432,
+      0.009213287383317947,
+      0.008501979522407055,
+      0.00820948090404272,
+      0.007989662699401379,
+      0.0074479058384895325,
+      0.007226026151329279
+    ]
+  },
+  "id": "flow-binary-cnn",
+  "version": 1,
+  "artifact": "model.keras",
+  "path": "flow-binary-cnn/v1"
+}

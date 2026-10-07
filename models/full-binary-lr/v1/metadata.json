@@ -1,0 +1,241 @@
+{
+  "name": "Logistic Regression (binary, full features)",
+  "algo": "lr",
+  "task": "binary",
+  "feature_set": "full",
+  "variant": null,
+  "classes": [
+    "normal",
+    "attack"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 41,
+  "n_inputs": 122,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:35:12+00:00",
+  "training_seconds": 2.59,
+  "train_rows": 113375,
+  "train_class_counts": {
+    "normal": 60608,
+    "attack": 52767
+  },
+  "hyperparameters": {
+    "C": 1.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 2000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": null,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9863470392125734,
+      "confusion_matrix": [
+        [
+          6669,
+          66
+        ],
+        [
+          106,
+          5757
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9843542435424354,
+          "recall": 0.9902004454342984,
+          "f1": 0.9872686898593634,
+          "support": 6735
+        },
+        "attack": {
+          "precision": 0.988665636269964,
+          "recall": 0.9819205185058844,
+          "f1": 0.9852815334588396,
+          "support": 5863
+        }
+      },
+      "precision": 0.988665636269964,
+      "recall": 0.9819205185058844,
+      "f1": 0.9852815334588396,
+      "false_positive_rate": 0.009799554565701559,
+      "false_negative_rate": 0.018079481494115642,
+      "roc_auc": 0.9981643720684408,
+      "attack_detection": {
+        "accuracy": 0.9863470392125734,
+        "precision": 0.988665636269964,
+        "recall": 0.9819205185058844,
+        "f1": 0.9852815334588396,
+        "false_positive_rate": 0.009799554565701559,
+        "false_negative_rate": 0.018079481494115642,
+        "roc_auc": 0.9981643720684408,
+        "tp": 5757,
+        "tn": 6669,
+        "fp": 66,
+        "fn": 106
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.7444552874378992,
+      "confusion_matrix": [
+        [
+          8970,
+          741
+        ],
+        [
+          5020,
+          7813
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6411722659042173,
+          "recall": 0.9236947791164659,
+          "f1": 0.756930087338087,
+          "support": 9711
+        },
+        "attack": {
+          "precision": 0.9133738601823708,
+          "recall": 0.6088210083378789,
+          "f1": 0.730630757001917,
+          "support": 12833
+        }
+      },
+      "precision": 0.9133738601823708,
+      "recall": 0.6088210083378789,
+      "f1": 0.730630757001917,
+      "false_positive_rate": 0.07630522088353414,
+      "false_negative_rate": 0.3911789916621211,
+      "roc_auc": 0.7964733835188302,
+      "attack_detection": {
+        "accuracy": 0.7444552874378992,
+        "precision": 0.9133738601823708,
+        "recall": 0.6088210083378789,
+        "f1": 0.730630757001917,
+        "false_positive_rate": 0.07630522088353414,
+        "false_negative_rate": 0.3911789916621211,
+        "roc_auc": 0.7964733835188302,
+        "tp": 7813,
+        "tn": 8970,
+        "fp": 741,
+        "fn": 5020
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.5149367088607595,
+      "confusion_matrix": [
+        [
+          1424,
+          728
+        ],
+        [
+          5020,
+          4678
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.22098075729360644,
+          "recall": 0.6617100371747212,
+          "f1": 0.3313168915774779,
+          "support": 2152
+        },
+        "attack": {
+          "precision": 0.8653348131705513,
+          "recall": 0.48236749845328936,
+          "f1": 0.6194385593220338,
+          "support": 9698
+        }
+      },
+      "precision": 0.8653348131705513,
+      "recall": 0.48236749845328936,
+      "f1": 0.6194385593220338,
+      "false_positive_rate": 0.3382899628252788,
+      "false_negative_rate": 0.5176325015467107,
+      "roc_auc": 0.5374557932076595,
+      "attack_detection": {
+        "accuracy": 0.5149367088607595,
+        "precision": 0.8653348131705513,
+        "recall": 0.48236749845328936,
+        "f1": 0.6194385593220338,
+        "false_positive_rate": 0.3382899628252788,
+        "false_negative_rate": 0.5176325015467107,
+        "roc_auc": 0.5374557932076595,
+        "tp": 4678,
+        "tn": 1424,
+        "fp": 728,
+        "fn": 5020
+      }
+    }
+  },
+  "history": null,
+  "id": "full-binary-lr",
+  "version": 1,
+  "artifact": "model.joblib",
+  "path": "full-binary-lr/v1"
+}

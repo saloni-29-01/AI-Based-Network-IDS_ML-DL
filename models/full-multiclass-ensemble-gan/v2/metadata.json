@@ -1,0 +1,386 @@
+{
+  "name": "Ensemble RF+CNN (multiclass, full features) [gan]",
+  "algo": "ensemble",
+  "task": "multiclass",
+  "feature_set": "full",
+  "variant": "gan",
+  "classes": [
+    "normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 41,
+  "members": {
+    "full-multiclass-rf-gan": 0.6,
+    "full-multiclass-cnn-gan": 0.4
+  },
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]+gan(16828 synthetic)",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T12:38:46+00:00",
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.99809493570408,
+      "confusion_matrix": [
+        [
+          6716,
+          3,
+          5,
+          6,
+          5
+        ],
+        [
+          0,
+          4593,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          1163,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          97,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9992560630858504,
+          "recall": 0.9971789161098737,
+          "f1": 0.9982164090368609,
+          "support": 6735
+        },
+        "DoS": {
+          "precision": 0.9993472584856397,
+          "recall": 1.0,
+          "f1": 0.9996735226901731,
+          "support": 4593
+        },
+        "Probe": {
+          "precision": 0.9957191780821918,
+          "recall": 0.9974271012006861,
+          "f1": 0.9965724078834619,
+          "support": 1166
+        },
+        "R2L": {
+          "precision": 0.941747572815534,
+          "recall": 0.9797979797979798,
+          "f1": 0.9603960396039604,
+          "support": 99
+        },
+        "U2R": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "support": 5
+        }
+      },
+      "macro_precision": 0.8872140144938431,
+      "macro_recall": 0.9948807994217079,
+      "macro_f1": 0.9243050091762246,
+      "weighted_precision": 0.9983118839863724,
+      "weighted_recall": 0.99809493570408,
+      "weighted_f1": 0.9981666910164682,
+      "roc_auc_ovr_macro": 0.999971504853977,
+      "precision": 0.8872140144938431,
+      "recall": 0.9948807994217079,
+      "f1": 0.9243050091762246,
+      "false_positive_rate": 0.0028210838901262065,
+      "false_negative_rate": 0.0008528057308545113,
+      "attack_detection": {
+        "accuracy": 0.99809493570408,
+        "precision": 0.9967670580228007,
+        "recall": 0.9991471942691454,
+        "f1": 0.9979557069846678,
+        "false_positive_rate": 0.0028210838901262065,
+        "false_negative_rate": 0.0008528057308545113,
+        "roc_auc": 0.9999849825152666,
+        "tp": 5858,
+        "tn": 6716,
+        "fp": 19,
+        "fn": 5
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.8019428672817601,
+      "confusion_matrix": [
+        [
+          9432,
+          70,
+          199,
+          5,
+          5
+        ],
+        [
+          1335,
+          6080,
+          43,
+          2,
+          0
+        ],
+        [
+          302,
+          173,
+          1761,
+          185,
+          0
+        ],
+        [
+          2080,
+          0,
+          20,
+          776,
+          9
+        ],
+        [
+          30,
+          0,
+          0,
+          7,
+          30
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.7156840427953562,
+          "recall": 0.9712696941612604,
+          "f1": 0.8241153342070773,
+          "support": 9711
+        },
+        "DoS": {
+          "precision": 0.9615688755337656,
+          "recall": 0.8150134048257373,
+          "f1": 0.882246245374737,
+          "support": 7460
+        },
+        "Probe": {
+          "precision": 0.870489372219476,
+          "recall": 0.7273853779429987,
+          "f1": 0.7925292529252925,
+          "support": 2421
+        },
+        "R2L": {
+          "precision": 0.7958974358974359,
+          "recall": 0.26897746967071057,
+          "f1": 0.40207253886010363,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.6818181818181818,
+          "recall": 0.44776119402985076,
+          "f1": 0.5405405405405406,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.8050915816528432,
+      "macro_recall": 0.6460814281261115,
+      "macro_f1": 0.6883007823815502,
+      "weighted_precision": 0.8238383712720401,
+      "weighted_recall": 0.8019428672817601,
+      "weighted_f1": 0.7851068937695269,
+      "roc_auc_ovr_macro": 0.9548374144704865,
+      "precision": 0.8050915816528432,
+      "recall": 0.6460814281261115,
+      "f1": 0.6883007823815502,
+      "false_positive_rate": 0.028730305838739572,
+      "false_negative_rate": 0.29198160991194577,
+      "attack_detection": {
+        "accuracy": 0.821415897799858,
+        "precision": 0.9702082221035772,
+        "recall": 0.7080183900880542,
+        "f1": 0.8186323092170465,
+        "false_positive_rate": 0.028730305838739572,
+        "false_negative_rate": 0.29198160991194577,
+        "roc_auc": 0.9663868917778502,
+        "tp": 9086,
+        "tn": 9432,
+        "fp": 279,
+        "fn": 3747
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.6232911392405063,
+      "confusion_matrix": [
+        [
+          1874,
+          70,
+          199,
+          4,
+          5
+        ],
+        [
+          1335,
+          2964,
+          43,
+          2,
+          0
+        ],
+        [
+          302,
+          173,
+          1742,
+          185,
+          0
+        ],
+        [
+          2080,
+          0,
+          20,
+          776,
+          9
+        ],
+        [
+          30,
+          0,
+          0,
+          7,
+          30
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.33339263476249775,
+          "recall": 0.870817843866171,
+          "f1": 0.4821819117457867,
+          "support": 2152
+        },
+        "DoS": {
+          "precision": 0.9242282507015903,
+          "recall": 0.6823204419889503,
+          "f1": 0.7850615812475169,
+          "support": 4344
+        },
+        "Probe": {
+          "precision": 0.8692614770459082,
+          "recall": 0.7252289758534555,
+          "f1": 0.7907399001361779,
+          "support": 2402
+        },
+        "R2L": {
+          "precision": 0.7967145790554415,
+          "recall": 0.26897746967071057,
+          "f1": 0.4021767297227261,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.6818181818181818,
+          "recall": 0.44776119402985076,
+          "f1": 0.5405405405405406,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.7210830246767239,
+      "macro_recall": 0.5990211850818277,
+      "macro_f1": 0.6001401326785496,
+      "weighted_precision": 0.7733736639390414,
+      "weighted_recall": 0.6232911392405063,
+      "weighted_f1": 0.6366089708531246,
+      "roc_auc_ovr_macro": 0.8850163895131831,
+      "precision": 0.7210830246767239,
+      "recall": 0.5990211850818277,
+      "f1": 0.6001401326785496,
+      "false_positive_rate": 0.129182156133829,
+      "false_negative_rate": 0.3863683233656424,
+      "attack_detection": {
+        "accuracy": 0.6603375527426161,
+        "precision": 0.9553700433456414,
+        "recall": 0.6136316766343576,
+        "f1": 0.7472844854649338,
+        "false_positive_rate": 0.129182156133829,
+        "false_negative_rate": 0.3863683233656424,
+        "roc_auc": 0.8143528424593734,
+        "tp": 5951,
+        "tn": 1874,
+        "fp": 278,
+        "fn": 3747
+      }
+    }
+  },
+  "id": "full-multiclass-ensemble-gan",
+  "version": 2,
+  "artifact": null,
+  "path": "full-multiclass-ensemble-gan/v2"
+}

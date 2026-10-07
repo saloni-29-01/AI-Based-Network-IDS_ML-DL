@@ -1,0 +1,221 @@
+{
+  "name": "Ensemble RF+CNN (binary, full features)",
+  "algo": "ensemble",
+  "task": "binary",
+  "feature_set": "full",
+  "variant": null,
+  "classes": [
+    "normal",
+    "attack"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 41,
+  "members": {
+    "full-binary-rf": 0.6,
+    "full-binary-cnn": 0.4
+  },
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:36:30+00:00",
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9986505794570567,
+      "confusion_matrix": [
+        [
+          6728,
+          7
+        ],
+        [
+          10,
+          5853
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9985158800831108,
+          "recall": 0.9989606533036377,
+          "f1": 0.9987382171750909,
+          "support": 6735
+        },
+        "attack": {
+          "precision": 0.9988054607508532,
+          "recall": 0.998294388538291,
+          "f1": 0.998549859251045,
+          "support": 5863
+        }
+      },
+      "precision": 0.9988054607508532,
+      "recall": 0.998294388538291,
+      "f1": 0.998549859251045,
+      "false_positive_rate": 0.0010393466963622866,
+      "false_negative_rate": 0.0017056114617090227,
+      "roc_auc": 0.999988451984758,
+      "attack_detection": {
+        "accuracy": 0.9986505794570567,
+        "precision": 0.9988054607508532,
+        "recall": 0.998294388538291,
+        "f1": 0.998549859251045,
+        "false_positive_rate": 0.0010393466963622866,
+        "false_negative_rate": 0.0017056114617090227,
+        "roc_auc": 0.999988451984758,
+        "tp": 5853,
+        "tn": 6728,
+        "fp": 7,
+        "fn": 10
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.810903122782115,
+      "confusion_matrix": [
+        [
+          9419,
+          292
+        ],
+        [
+          3971,
+          8862
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.7034353995519044,
+          "recall": 0.9699310060755844,
+          "f1": 0.8154625340894334,
+          "support": 9711
+        },
+        "attack": {
+          "precision": 0.9681013764474546,
+          "recall": 0.6905633912569158,
+          "f1": 0.8061127029608405,
+          "support": 12833
+        }
+      },
+      "precision": 0.9681013764474546,
+      "recall": 0.6905633912569158,
+      "f1": 0.8061127029608405,
+      "false_positive_rate": 0.030068993924415612,
+      "false_negative_rate": 0.30943660874308426,
+      "roc_auc": 0.9618080222794725,
+      "attack_detection": {
+        "accuracy": 0.810903122782115,
+        "precision": 0.9681013764474546,
+        "recall": 0.6905633912569158,
+        "f1": 0.8061127029608405,
+        "false_positive_rate": 0.030068993924415612,
+        "false_negative_rate": 0.30943660874308426,
+        "roc_auc": 0.9618080222794725,
+        "tp": 8862,
+        "tn": 9419,
+        "fp": 292,
+        "fn": 3971
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.640253164556962,
+      "confusion_matrix": [
+        [
+          1860,
+          292
+        ],
+        [
+          3971,
+          5727
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.3189847367518436,
+          "recall": 0.8643122676579925,
+          "f1": 0.4659902292371289,
+          "support": 2152
+        },
+        "attack": {
+          "precision": 0.9514869579664396,
+          "recall": 0.5905341307486079,
+          "f1": 0.7287650314945601,
+          "support": 9698
+        }
+      },
+      "precision": 0.9514869579664396,
+      "recall": 0.5905341307486079,
+      "f1": 0.7287650314945601,
+      "false_positive_rate": 0.13568773234200743,
+      "false_negative_rate": 0.40946586925139206,
+      "roc_auc": 0.7903558996566187,
+      "attack_detection": {
+        "accuracy": 0.640253164556962,
+        "precision": 0.9514869579664396,
+        "recall": 0.5905341307486079,
+        "f1": 0.7287650314945601,
+        "false_positive_rate": 0.13568773234200743,
+        "false_negative_rate": 0.40946586925139206,
+        "roc_auc": 0.7903558996566187,
+        "tp": 5727,
+        "tn": 1860,
+        "fp": 292,
+        "fn": 3971
+      }
+    }
+  },
+  "id": "full-binary-ensemble",
+  "version": 1,
+  "artifact": null,
+  "path": "full-binary-ensemble/v1"
+}

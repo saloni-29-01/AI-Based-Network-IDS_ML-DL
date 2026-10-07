@@ -1,0 +1,230 @@
+{
+  "name": "Linear SVM (calibrated) (binary, flow features)",
+  "algo": "svm",
+  "task": "binary",
+  "feature_set": "flow",
+  "variant": null,
+  "classes": [
+    "normal",
+    "attack"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 28,
+  "n_inputs": 109,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:39:12+00:00",
+  "training_seconds": 2.66,
+  "train_rows": 113375,
+  "train_class_counts": {
+    "normal": 60608,
+    "attack": 52767
+  },
+  "hyperparameters": {
+    "cv": 3,
+    "ensemble": "auto",
+    "estimator__C": 1.0,
+    "estimator__class_weight": null,
+    "estimator__dual": false,
+    "estimator__fit_intercept": true,
+    "estimator__intercept_scaling": 1,
+    "estimator__loss": "squared_hinge",
+    "estimator__max_iter": 5000,
+    "estimator__multi_class": "ovr",
+    "estimator__penalty": "l2",
+    "estimator__random_state": null,
+    "estimator__tol": 0.0001,
+    "estimator__verbose": 0,
+    "method": "sigmoid",
+    "n_jobs": null
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9745197650420702,
+      "confusion_matrix": [
+        [
+          6626,
+          109
+        ],
+        [
+          212,
+          5651
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9689967826849956,
+          "recall": 0.9838158871566444,
+          "f1": 0.9763501068297356,
+          "support": 6735
+        },
+        "attack": {
+          "precision": 0.9810763888888889,
+          "recall": 0.9638410370117687,
+          "f1": 0.9723823453497376,
+          "support": 5863
+        }
+      },
+      "precision": 0.9810763888888889,
+      "recall": 0.9638410370117687,
+      "f1": 0.9723823453497376,
+      "false_positive_rate": 0.016184112843355605,
+      "false_negative_rate": 0.036158962988231284,
+      "roc_auc": 0.9965628193668826,
+      "attack_detection": {
+        "accuracy": 0.9745197650420702,
+        "precision": 0.9810763888888889,
+        "recall": 0.9638410370117687,
+        "f1": 0.9723823453497376,
+        "false_positive_rate": 0.016184112843355605,
+        "false_negative_rate": 0.036158962988231284,
+        "roc_auc": 0.9965628193668826,
+        "tp": 5651,
+        "tn": 6626,
+        "fp": 109,
+        "fn": 212
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.7540365507452094,
+      "confusion_matrix": [
+        [
+          8945,
+          766
+        ],
+        [
+          4779,
+          8054
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6517779073156514,
+          "recall": 0.9211203789517043,
+          "f1": 0.7633880947301045,
+          "support": 9711
+        },
+        "attack": {
+          "precision": 0.9131519274376417,
+          "recall": 0.6276007169017377,
+          "f1": 0.743915392786219,
+          "support": 12833
+        }
+      },
+      "precision": 0.9131519274376417,
+      "recall": 0.6276007169017377,
+      "f1": 0.743915392786219,
+      "false_positive_rate": 0.07887962104829575,
+      "false_negative_rate": 0.3723992830982623,
+      "roc_auc": 0.7855011387583193,
+      "attack_detection": {
+        "accuracy": 0.7540365507452094,
+        "precision": 0.9131519274376417,
+        "recall": 0.6276007169017377,
+        "f1": 0.743915392786219,
+        "false_positive_rate": 0.07887962104829575,
+        "false_negative_rate": 0.3723992830982623,
+        "roc_auc": 0.7855011387583193,
+        "tp": 8054,
+        "tn": 8945,
+        "fp": 766,
+        "fn": 4779
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.5335864978902953,
+      "confusion_matrix": [
+        [
+          1404,
+          748
+        ],
+        [
+          4779,
+          4919
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.22707423580786026,
+          "recall": 0.6524163568773235,
+          "f1": 0.33689262147570487,
+          "support": 2152
+        },
+        "attack": {
+          "precision": 0.8680077642491618,
+          "recall": 0.5072179830892968,
+          "f1": 0.6402863651155223,
+          "support": 9698
+        }
+      },
+      "precision": 0.8680077642491618,
+      "recall": 0.5072179830892968,
+      "f1": 0.6402863651155223,
+      "false_positive_rate": 0.3475836431226766,
+      "false_negative_rate": 0.4927820169107032,
+      "roc_auc": 0.5683866044506936,
+      "attack_detection": {
+        "accuracy": 0.5335864978902953,
+        "precision": 0.8680077642491618,
+        "recall": 0.5072179830892968,
+        "f1": 0.6402863651155223,
+        "false_positive_rate": 0.3475836431226766,
+        "false_negative_rate": 0.4927820169107032,
+        "roc_auc": 0.5683866044506936,
+        "tp": 4919,
+        "tn": 1404,
+        "fp": 748,
+        "fn": 4779
+      }
+    }
+  },
+  "history": null,
+  "id": "flow-binary-svm",
+  "version": 1,
+  "artifact": "model.joblib",
+  "path": "flow-binary-svm/v1"
+}

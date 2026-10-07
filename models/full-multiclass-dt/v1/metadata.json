@@ -1,0 +1,470 @@
+{
+  "name": "Decision Tree (multiclass, full features)",
+  "algo": "dt",
+  "task": "multiclass",
+  "feature_set": "full",
+  "variant": null,
+  "classes": [
+    "normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 41,
+  "n_inputs": 122,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:37:30+00:00",
+  "training_seconds": 1.37,
+  "train_rows": 113375,
+  "train_class_counts": {
+    "normal": 60608,
+    "DoS": 41334,
+    "Probe": 10490,
+    "R2L": 896,
+    "U2R": 47
+  },
+  "hyperparameters": {
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "random_state": 42,
+    "splitter": "best"
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.9984124464200667,
+      "confusion_matrix": [
+        [
+          6721,
+          4,
+          3,
+          3,
+          4
+        ],
+        [
+          1,
+          4592,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1164,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          97,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9991080719488628,
+          "recall": 0.9979213066072754,
+          "f1": 0.9985143366513148,
+          "support": 6735
+        },
+        "DoS": {
+          "precision": 0.999129677980853,
+          "recall": 0.9997822773786197,
+          "f1": 0.9994558711502883,
+          "support": 4593
+        },
+        "Probe": {
+          "precision": 0.9974293059125964,
+          "recall": 0.9982847341337907,
+          "f1": 0.9978568366909558,
+          "support": 1166
+        },
+        "R2L": {
+          "precision": 0.97,
+          "recall": 0.9797979797979798,
+          "f1": 0.9748743718592965,
+          "support": 99
+        },
+        "U2R": {
+          "precision": 0.5,
+          "recall": 0.8,
+          "f1": 0.6153846153846154,
+          "support": 5
+        }
+      },
+      "macro_precision": 0.8931334111684623,
+      "macro_recall": 0.9551572595835331,
+      "macro_f1": 0.9172172063472942,
+      "weighted_precision": 0.998533739183659,
+      "weighted_recall": 0.9984124464200667,
+      "weighted_f1": 0.9984589165750539,
+      "roc_auc_ovr_macro": 0.9773443166087956,
+      "precision": 0.8931334111684623,
+      "recall": 0.9551572595835331,
+      "f1": 0.9172172063472942,
+      "false_positive_rate": 0.0020786933927245733,
+      "false_negative_rate": 0.0010233668770254136,
+      "attack_detection": {
+        "accuracy": 0.9984124464200667,
+        "precision": 0.997615397717595,
+        "recall": 0.9989766331229746,
+        "f1": 0.9982955513891256,
+        "false_positive_rate": 0.0020786933927245733,
+        "false_negative_rate": 0.0010233668770254136,
+        "roc_auc": 0.998448969865125,
+        "tp": 5857,
+        "tn": 6721,
+        "fp": 14,
+        "fn": 6
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.7636621717530163,
+      "confusion_matrix": [
+        [
+          9412,
+          60,
+          234,
+          3,
+          2
+        ],
+        [
+          1364,
+          6023,
+          73,
+          0,
+          0
+        ],
+        [
+          708,
+          188,
+          1525,
+          0,
+          0
+        ],
+        [
+          2535,
+          5,
+          92,
+          243,
+          10
+        ],
+        [
+          49,
+          0,
+          0,
+          5,
+          13
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6690361103212965,
+          "recall": 0.9692101740294511,
+          "f1": 0.7916228605071702,
+          "support": 9711
+        },
+        "DoS": {
+          "precision": 0.9596876991714468,
+          "recall": 0.807372654155496,
+          "f1": 0.8769656377402446,
+          "support": 7460
+        },
+        "Probe": {
+          "precision": 0.7926195426195426,
+          "recall": 0.6299049979347378,
+          "f1": 0.7019562715765247,
+          "support": 2421
+        },
+        "R2L": {
+          "precision": 0.9681274900398407,
+          "recall": 0.08422876949740035,
+          "f1": 0.15497448979591838,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.52,
+          "recall": 0.19402985074626866,
+          "f1": 0.2826086956521739,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.7818941684304254,
+      "macro_recall": 0.5369492892726708,
+      "macro_f1": 0.5616255910544063,
+      "weighted_precision": 0.8163191813607149,
+      "weighted_recall": 0.7636621717530163,
+      "weighted_f1": 0.7272482955590861,
+      "roc_auc_ovr_macro": 0.7296373824695943,
+      "precision": 0.7818941684304254,
+      "recall": 0.5369492892726708,
+      "f1": 0.5616255910544063,
+      "false_positive_rate": 0.030789825970548863,
+      "false_negative_rate": 0.3628146185615211,
+      "attack_detection": {
+        "accuracy": 0.7802075940383251,
+        "precision": 0.9647239263803681,
+        "recall": 0.6371853814384789,
+        "f1": 0.7674691444929372,
+        "false_positive_rate": 0.030789825970548863,
+        "false_negative_rate": 0.3628146185615211,
+        "roc_auc": 0.8042173629711968,
+        "tp": 8177,
+        "tn": 9412,
+        "fp": 299,
+        "fn": 4656
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.5536708860759494,
+      "confusion_matrix": [
+        [
+          1866,
+          60,
+          221,
+          3,
+          2
+        ],
+        [
+          1364,
+          2932,
+          48,
+          0,
+          0
+        ],
+        [
+          708,
+          187,
+          1507,
+          0,
+          0
+        ],
+        [
+          2535,
+          5,
+          92,
+          243,
+          10
+        ],
+        [
+          49,
+          0,
+          0,
+          5,
+          13
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.2861085556577737,
+          "recall": 0.8671003717472119,
+          "f1": 0.4302513258012451,
+          "support": 2152
+        },
+        "DoS": {
+          "precision": 0.9208542713567839,
+          "recall": 0.6749539594843462,
+          "f1": 0.7789585547290117,
+          "support": 4344
+        },
+        "Probe": {
+          "precision": 0.806745182012848,
+          "recall": 0.6273938384679434,
+          "f1": 0.7058548009367681,
+          "support": 2402
+        },
+        "R2L": {
+          "precision": 0.9681274900398407,
+          "recall": 0.08422876949740035,
+          "f1": 0.15497448979591838,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.52,
+          "recall": 0.19402985074626866,
+          "f1": 0.2826086956521739,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.7003670998134492,
+      "macro_recall": 0.48954135798863413,
+      "macro_f1": 0.47052957338302337,
+      "weighted_precision": 0.7916950466252488,
+      "weighted_recall": 0.5536708860759494,
+      "weighted_f1": 0.5460925090622062,
+      "roc_auc_ovr_macro": 0.6906315261858239,
+      "precision": 0.7003670998134492,
+      "recall": 0.48954135798863413,
+      "f1": 0.47052957338302337,
+      "false_positive_rate": 0.13289962825278812,
+      "false_negative_rate": 0.4800989894823675,
+      "attack_detection": {
+        "accuracy": 0.5829535864978903,
+        "precision": 0.9463213213213213,
+        "recall": 0.5199010105176325,
+        "f1": 0.6711034207373885,
+        "false_positive_rate": 0.13289962825278812,
+        "false_negative_rate": 0.4800989894823675,
+        "roc_auc": 0.694707729183421,
+        "tp": 5042,
+        "tn": 1866,
+        "fp": 286,
+        "fn": 4656
+      }
+    }
+  },
+  "history": null,
+  "feature_importance": [
+    {
+      "feature": "src_bytes",
+      "importance": 0.54107
+    },
+    {
+      "feature": "count",
+      "importance": 0.16024
+    },
+    {
+      "feature": "service",
+      "importance": 0.08489
+    },
+    {
+      "feature": "dst_host_diff_srv_rate",
+      "importance": 0.07442
+    },
+    {
+      "feature": "dst_host_same_src_port_rate",
+      "importance": 0.04288
+    },
+    {
+      "feature": "dst_host_srv_count",
+      "importance": 0.02729
+    },
+    {
+      "feature": "num_compromised",
+      "importance": 0.01671
+    },
+    {
+      "feature": "diff_srv_rate",
+      "importance": 0.00926
+    },
+    {
+      "feature": "dst_host_same_srv_rate",
+      "importance": 0.00877
+    },
+    {
+      "feature": "duration",
+      "importance": 0.00517
+    },
+    {
+      "feature": "dst_host_srv_serror_rate",
+      "importance": 0.0041
+    },
+    {
+      "feature": "hot",
+      "importance": 0.00396
+    },
+    {
+      "feature": "dst_host_srv_diff_host_rate",
+      "importance": 0.00348
+    },
+    {
+      "feature": "dst_host_rerror_rate",
+      "importance": 0.00269
+    },
+    {
+      "feature": "flag",
+      "importance": 0.00207
+    }
+  ],
+  "id": "full-multiclass-dt",
+  "version": 1,
+  "artifact": "model.joblib",
+  "path": "full-multiclass-dt/v1"
+}

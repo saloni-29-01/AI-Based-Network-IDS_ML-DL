@@ -1,0 +1,384 @@
+{
+  "name": "Naive Bayes (multiclass, flow features)",
+  "algo": "nb",
+  "task": "multiclass",
+  "feature_set": "flow",
+  "variant": null,
+  "classes": [
+    "normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 28,
+  "n_inputs": 109,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:40:51+00:00",
+  "training_seconds": 0.13,
+  "train_rows": 113375,
+  "train_class_counts": {
+    "normal": 60608,
+    "DoS": 41334,
+    "Probe": 10490,
+    "R2L": 896,
+    "U2R": 47
+  },
+  "hyperparameters": {
+    "priors": null,
+    "var_smoothing": 1e-09
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.5703286235910462,
+      "confusion_matrix": [
+        [
+          3031,
+          11,
+          3,
+          2971,
+          719
+        ],
+        [
+          554,
+          3917,
+          12,
+          86,
+          24
+        ],
+        [
+          849,
+          37,
+          214,
+          48,
+          18
+        ],
+        [
+          0,
+          0,
+          0,
+          18,
+          81
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6835814163283717,
+          "recall": 0.4500371195248701,
+          "f1": 0.5427522607216403,
+          "support": 6735
+        },
+        "DoS": {
+          "precision": 0.9878940731399748,
+          "recall": 0.8528195079468757,
+          "f1": 0.9154007945781725,
+          "support": 4593
+        },
+        "Probe": {
+          "precision": 0.9344978165938864,
+          "recall": 0.1835334476843911,
+          "f1": 0.3068100358422939,
+          "support": 1166
+        },
+        "R2L": {
+          "precision": 0.005763688760806916,
+          "recall": 0.18181818181818182,
+          "f1": 0.0111731843575419,
+          "support": 99
+        },
+        "U2R": {
+          "precision": 0.0059031877213695395,
+          "recall": 1.0,
+          "f1": 0.011737089201877934,
+          "support": 5
+        }
+      },
+      "macro_precision": 0.5235280365088819,
+      "macro_recall": 0.5336416513948637,
+      "macro_f1": 0.3575746729403053,
+      "weighted_precision": 0.8121561273359172,
+      "weighted_recall": 0.5703286235910462,
+      "weighted_f1": 0.6523874946775134,
+      "roc_auc_ovr_macro": 0.8058843524891085,
+      "precision": 0.5235280365088819,
+      "recall": 0.5336416513948637,
+      "f1": 0.3575746729403053,
+      "false_positive_rate": 0.5499628804751299,
+      "false_negative_rate": 0.2392972880777759,
+      "attack_detection": {
+        "accuracy": 0.594618193364026,
+        "precision": 0.5463008329250367,
+        "recall": 0.7607027119222242,
+        "f1": 0.6359164468524987,
+        "false_positive_rate": 0.5499628804751299,
+        "false_negative_rate": 0.2392972880777759,
+        "roc_auc": 0.6230983983333378,
+        "tp": 4460,
+        "tn": 3031,
+        "fp": 3704,
+        "fn": 1403
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.30504790631653655,
+      "confusion_matrix": [
+        [
+          3670,
+          57,
+          10,
+          5583,
+          391
+        ],
+        [
+          3201,
+          2648,
+          13,
+          1479,
+          119
+        ],
+        [
+          1394,
+          320,
+          239,
+          334,
+          134
+        ],
+        [
+          1387,
+          3,
+          3,
+          270,
+          1222
+        ],
+        [
+          0,
+          0,
+          0,
+          17,
+          50
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.3802320762536262,
+          "recall": 0.3779219441870044,
+          "f1": 0.3790734906780974,
+          "support": 9711
+        },
+        "DoS": {
+          "precision": 0.8745046235138706,
+          "recall": 0.35495978552278823,
+          "f1": 0.5049580472921434,
+          "support": 7460
+        },
+        "Probe": {
+          "precision": 0.9018867924528302,
+          "recall": 0.09871953738124742,
+          "f1": 0.17795979151154132,
+          "support": 2421
+        },
+        "R2L": {
+          "precision": 0.035142522452167126,
+          "recall": 0.09358752166377816,
+          "f1": 0.05109765329295988,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.026096033402922755,
+          "recall": 0.746268656716418,
+          "f1": 0.05042864346949067,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.4435724096150834,
+      "macro_recall": 0.3342914890942472,
+      "macro_f1": 0.23270352524884658,
+      "weighted_precision": 0.5545972640149591,
+      "weighted_recall": 0.30504790631653655,
+      "weighted_f1": 0.3561837209406707,
+      "roc_auc_ovr_macro": 0.6322868192642209,
+      "precision": 0.4435724096150834,
+      "recall": 0.3342914890942472,
+      "f1": 0.23270352524884658,
+      "false_positive_rate": 0.6220780558129956,
+      "false_negative_rate": 0.46614197771370686,
+      "attack_detection": {
+        "accuracy": 0.4666873669268985,
+        "precision": 0.5314148309028855,
+        "recall": 0.5338580222862932,
+        "f1": 0.5326336248785228,
+        "false_positive_rate": 0.6220780558129956,
+        "false_negative_rate": 0.46614197771370686,
+        "roc_auc": 0.4664864173299223,
+        "tp": 6851,
+        "tn": 3670,
+        "fp": 6041,
+        "fn": 5982
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.3064978902953587,
+      "confusion_matrix": [
+        [
+          1575,
+          53,
+          10,
+          259,
+          255
+        ],
+        [
+          1253,
+          1505,
+          0,
+          1479,
+          107
+        ],
+        [
+          1384,
+          318,
+          232,
+          334,
+          134
+        ],
+        [
+          1387,
+          3,
+          3,
+          270,
+          1222
+        ],
+        [
+          0,
+          0,
+          0,
+          17,
+          50
+        ]
+      ],
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.28130023218431865,
+          "recall": 0.7318773234200744,
+          "f1": 0.4063991743000903,
+          "support": 2152
+        },
+        "DoS": {
+          "precision": 0.8009579563597659,
+          "recall": 0.3464548802946593,
+          "f1": 0.48368953880764903,
+          "support": 4344
+        },
+        "Probe": {
+          "precision": 0.9469387755102041,
+          "recall": 0.09658617818484597,
+          "f1": 0.1752927842840952,
+          "support": 2402
+        },
+        "R2L": {
+          "precision": 0.11445527766002543,
+          "recall": 0.09358752166377816,
+          "f1": 0.10297482837528604,
+          "support": 2885
+        },
+        "U2R": {
+          "precision": 0.02828054298642534,
+          "recall": 0.746268656716418,
+          "f1": 0.05449591280653951,
+          "support": 67
+        }
+      },
+      "macro_precision": 0.4343865569401479,
+      "macro_recall": 0.4029549120559552,
+      "macro_f1": 0.244570447714732,
+      "weighted_precision": 0.5646721243284599,
+      "weighted_recall": 0.3064978902953587,
+      "weighted_f1": 0.31202575979285707,
+      "roc_auc_ovr_macro": 0.6723820109665348,
+      "precision": 0.4343865569401479,
+      "recall": 0.4029549120559552,
+      "f1": 0.244570447714732,
+      "false_positive_rate": 0.26812267657992567,
+      "false_negative_rate": 0.414930913590431,
+      "attack_detection": {
+        "accuracy": 0.6117299578059072,
+        "precision": 0.9076947688369861,
+        "recall": 0.585069086409569,
+        "f1": 0.7115179635086839,
+        "false_positive_rate": 0.26812267657992567,
+        "false_negative_rate": 0.414930913590431,
+        "roc_auc": 0.659401087565673,
+        "tp": 5674,
+        "tn": 1575,
+        "fp": 577,
+        "fn": 4024
+      }
+    }
+  },
+  "history": null,
+  "id": "flow-multiclass-nb",
+  "version": 1,
+  "artifact": "model.joblib",
+  "path": "flow-multiclass-nb/v1"
+}

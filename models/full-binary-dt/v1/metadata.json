@@ -1,0 +1,302 @@
+{
+  "name": "Decision Tree (binary, full features)",
+  "algo": "dt",
+  "task": "binary",
+  "feature_set": "full",
+  "variant": null,
+  "classes": [
+    "normal",
+    "attack"
+  ],
+  "features": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "n_features": 41,
+  "n_inputs": 122,
+  "dataset": "NSL-KDD[train:ed26fb8417ba,test:b17c8794784e]",
+  "preprocessing": "pp-2.0 (onehot+log1p+standard)",
+  "trained_at": "2026-10-07T11:35:17+00:00",
+  "training_seconds": 1.41,
+  "train_rows": 113375,
+  "train_class_counts": {
+    "normal": 60608,
+    "attack": 52767
+  },
+  "hyperparameters": {
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "random_state": 42,
+    "splitter": "best"
+  },
+  "metrics": {
+    "validation": {
+      "n_samples": 12598,
+      "accuracy": 0.99833306874107,
+      "confusion_matrix": [
+        [
+          6722,
+          13
+        ],
+        [
+          8,
+          5855
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.9988112927191679,
+          "recall": 0.9980697847067558,
+          "f1": 0.9984404010397326,
+          "support": 6735
+        },
+        "attack": {
+          "precision": 0.9977845944103613,
+          "recall": 0.9986355108306327,
+          "f1": 0.9982098712812207,
+          "support": 5863
+        }
+      },
+      "precision": 0.9977845944103613,
+      "recall": 0.9986355108306327,
+      "f1": 0.9982098712812207,
+      "false_positive_rate": 0.0019302152932442465,
+      "false_negative_rate": 0.0013644891693672181,
+      "roc_auc": 0.9983526477686943,
+      "attack_detection": {
+        "accuracy": 0.99833306874107,
+        "precision": 0.9977845944103613,
+        "recall": 0.9986355108306327,
+        "f1": 0.9982098712812207,
+        "false_positive_rate": 0.0019302152932442465,
+        "false_negative_rate": 0.0013644891693672181,
+        "roc_auc": 0.9983526477686943,
+        "tp": 5855,
+        "tn": 6722,
+        "fp": 13,
+        "fn": 8
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "accuracy": 0.811124911284599,
+      "confusion_matrix": [
+        [
+          9407,
+          304
+        ],
+        [
+          3954,
+          8879
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.7040640670608488,
+          "recall": 0.9686952939964988,
+          "f1": 0.8154472954230236,
+          "support": 9711
+        },
+        "attack": {
+          "precision": 0.9668953501034521,
+          "recall": 0.691888100989636,
+          "f1": 0.8065952034883721,
+          "support": 12833
+        }
+      },
+      "precision": 0.9668953501034521,
+      "recall": 0.691888100989636,
+      "f1": 0.8065952034883721,
+      "false_positive_rate": 0.03130470600350119,
+      "false_negative_rate": 0.3081118990103639,
+      "roc_auc": 0.8303671822038908,
+      "attack_detection": {
+        "accuracy": 0.811124911284599,
+        "precision": 0.9668953501034521,
+        "recall": 0.691888100989636,
+        "f1": 0.8065952034883721,
+        "false_positive_rate": 0.03130470600350119,
+        "false_negative_rate": 0.3081118990103639,
+        "roc_auc": 0.8303671822038908,
+        "tp": 8879,
+        "tn": 9407,
+        "fp": 304,
+        "fn": 3954
+      }
+    },
+    "test21": {
+      "n_samples": 11850,
+      "accuracy": 0.6425316455696203,
+      "confusion_matrix": [
+        [
+          1870,
+          282
+        ],
+        [
+          3954,
+          5744
+        ]
+      ],
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.32108516483516486,
+          "recall": 0.8689591078066915,
+          "f1": 0.46890672016048146,
+          "support": 2152
+        },
+        "attack": {
+          "precision": 0.9532027879190176,
+          "recall": 0.5922870694988658,
+          "f1": 0.7306029000254388,
+          "support": 9698
+        }
+      },
+      "precision": 0.9532027879190176,
+      "recall": 0.5922870694988658,
+      "f1": 0.7306029000254388,
+      "false_positive_rate": 0.13104089219330856,
+      "false_negative_rate": 0.4077129305011343,
+      "roc_auc": 0.7307126905405704,
+      "attack_detection": {
+        "accuracy": 0.6425316455696203,
+        "precision": 0.9532027879190176,
+        "recall": 0.5922870694988658,
+        "f1": 0.7306029000254388,
+        "false_positive_rate": 0.13104089219330856,
+        "false_negative_rate": 0.4077129305011343,
+        "roc_auc": 0.7307126905405704,
+        "tp": 5744,
+        "tn": 1870,
+        "fp": 282,
+        "fn": 3954
+      }
+    }
+  },
+  "history": null,
+  "feature_importance": [
+    {
+      "feature": "src_bytes",
+      "importance": 0.73802
+    },
+    {
+      "feature": "service",
+      "importance": 0.14386
+    },
+    {
+      "feature": "dst_host_same_srv_rate",
+      "importance": 0.02831
+    },
+    {
+      "feature": "dst_bytes",
+      "importance": 0.02219
+    },
+    {
+      "feature": "hot",
+      "importance": 0.02187
+    },
+    {
+      "feature": "logged_in",
+      "importance": 0.01048
+    },
+    {
+      "feature": "dst_host_srv_count",
+      "importance": 0.00529
+    },
+    {
+      "feature": "protocol_type",
+      "importance": 0.00443
+    },
+    {
+      "feature": "dst_host_srv_diff_host_rate",
+      "importance": 0.00438
+    },
+    {
+      "feature": "duration",
+      "importance": 0.0036
+    },
+    {
+      "feature": "dst_host_rerror_rate",
+      "importance": 0.00342
+    },
+    {
+      "feature": "dst_host_same_src_port_rate",
+      "importance": 0.00311
+    },
+    {
+      "feature": "flag",
+      "importance": 0.00253
+    },
+    {
+      "feature": "count",
+      "importance": 0.00235
+    },
+    {
+      "feature": "dst_host_diff_srv_rate",
+      "importance": 0.0018
+    }
+  ],
+  "id": "full-binary-dt",
+  "version": 1,
+  "artifact": "model.joblib",
+  "path": "full-binary-dt/v1"
+}
