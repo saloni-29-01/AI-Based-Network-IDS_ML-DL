@@ -1,8 +1,10 @@
 # Changelog
 
-All notable changes made during the modernization of this fork are
-documented here. This project is based on
-[mohammedAcheddad/AI-Based-Network-IDS_ML-DL](https://github.com/mohammedAcheddad/AI-Based-Network-IDS_ML-DL)
+Repository: <https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL>  
+Maintainer: [Saloni Kumari](https://github.com/saloni-29-01)
+
+All notable changes to this project are documented here. The format follows
+
 (MIT License, © 2025 Mohammed Ali Cheddad) — see [README.md](README.md)
 for full attribution.
 
@@ -12,7 +14,7 @@ files to confirm it still executes correctly (TensorFlow/CNN training
 cells could not be executed in the environment used to prepare this
 release — see "Reproducing results" in the README).
 
-## [2.0.0] — Integrated IDS system (2026-10-07)
+## [2.0.0] — Integrated IDS system (2026-10-07) — Saloni Kumari
 
 Turns the notebook project into a working intrusion detection system. The
 original notebooks, dataset and `script.py` are preserved. Audit findings
@@ -32,15 +34,30 @@ are in [docs/AUDIT.md](docs/AUDIT.md); results are in [docs/RESULTS.md](docs/RES
 - Basic drift monitor (PSI on predicted-class distribution, unseen categories, out-of-range values).
 - Dashboard with 8 pages, offline canvas charts, dark/light themes and a responsive layout; CSV exports and an HTML report.
 - `setup.py`, `run.py`, `run_project.bat` menu, `scripts/api_call.py`; benign demo PCAP generator; `scripts/export_results.py`.
-- 51-test pytest suite; `docs/ARCHITECTURE.md`, `docs/AUDIT.md`, `docs/RESULTS.md`, `docs/IMPLEMENTATION_STATUS.md`.
+- 54-test pytest suite; `docs/ARCHITECTURE.md`, `docs/AUDIT.md`, `docs/RESULTS.md`, `docs/IMPLEMENTATION_STATUS.md`.
+
+### Fixed (found while verifying on real traffic and on Windows 11)
+- PCAP replay read Ethernet frames as Raw in a fresh process (Scapy lazy layer registration): layers now imported eagerly, with a re-dissection fallback.
+- Detection throughput: explanations computed only for new alerts and via a direct tree walk (~40x faster, identical output); p95 latency 8.4 s -> ~0.2 s.
+- GAN numeric collapse caused by a double `tanh`; fixed together with class-balanced batch sampling (U2R recall after augmentation 1.5% -> 25.4%).
+- Linux loopback duplicate frames doubled byte counts in live capture; byte-identical frames within 2 ms are now dropped and counted.
+- BPF filter without libpcap: capture falls back to unfiltered mode with a visible note.
+- Live Wi-Fi: broadcast/multicast discovery traffic (SSDP, NetBIOS, DHCP) was labelled Probe; it is now counted but not scored (`SKIP_BROADCAST`).
+- A *Suspicious* (uncertain) verdict is capped at MEDIUM risk so it never outranks a confident detection.
+- Model-comparison chart title now matches what it plots.
+
+### Verified
+- Windows 11 + Python 3.12.10 + Npcap 1.89: setup, all four modes, every dashboard page, live capture on a Wi-Fi adapter, and the full test suite.
 
 ### Changed
 - README rewritten; original-author attribution preserved and the original vs added work clearly separated.
 - Notebooks: explanatory markdown intro cells added, including the random-split evaluation caveat. Code cells unchanged.
 - `script.py`: menu text now matches the number of predefined records; docstring points to the new app.
+- `LICENSE`: original copyright notice kept unchanged; a second copyright line for the v2.0 work added (permitted by the MIT License).
+- `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`: repository links, maintainer and contact routes filled in.
 - `requirements.txt`: added FastAPI, uvicorn, Scapy, psutil; pinned scikit-learn to match the shipped model artifacts; notebook-only tools moved to `requirements-dev.txt`.
 
-## [1.1.0] — Modernization Pass
+## [1.1.0] — Modernization Pass — Saloni Kumari
 
 ### `BinaryPrediction.ipynb`
 
@@ -185,8 +202,15 @@ are in [docs/AUDIT.md](docs/AUDIT.md); results are in [docs/RESULTS.md](docs/RES
   remain, and it does).
 - **Filled in:** `CONTRIBUTING.md` and `SECURITY.md`, which were
   placeholder `TODO` stubs in the original project.
-- **Unchanged:** `LICENSE` (must remain exactly as-is per the MIT
-  License's own terms), `CODE_OF_CONDUCT.md` (a generic Contributor
-  Covenant template with no project-specific or personal content),
-  `.github/ISSUE_TEMPLATE/*` (generic templates, no personal content),
-  and the `nsl-kdd/` dataset files themselves.
+- **Unchanged in 1.1.0:** `LICENSE`, `CODE_OF_CONDUCT.md`,
+  `.github/ISSUE_TEMPLATE/*` and the `nsl-kdd/` dataset files. (In 2.0.0 the
+  LICENSE gained a second copyright line; the original notice is untouched.)
+
+## [1.0.0] — Original project
+
+Original implementation by Mohammed Ali Cheddad:
+<https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL>
+(Zenodo DOI [10.5281/zenodo.17488850](https://doi.org/10.5281/zenodo.17488850)).
+
+[2.0.0]: https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL
+[1.0.0]: https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL

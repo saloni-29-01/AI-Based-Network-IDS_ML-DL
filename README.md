@@ -3,6 +3,7 @@
 ![Framework](https://img.shields.io/badge/TensorFlow%2FKeras%203%20%7C%20scikit--learn%20%7C%20FastAPI-orange.svg)
 ![Dataset](https://img.shields.io/badge/Dataset-NSL--KDD-green.svg)
 ![Tests](https://img.shields.io/badge/tests-54%20passing-success.svg)
+[![GitHub](https://img.shields.io/badge/GitHub-saloni--29--01-181717?logo=github)](https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17488850.svg)](https://doi.org/10.5281/zenodo.17488850)
 
 # AI-Based Network Intrusion Detection System (ML / DL)
@@ -12,6 +13,8 @@ detection with classical ML and a 1D-CNN, GAN-based minority-class
 augmentation, flow-based live/PCAP detection, an ensemble + risk engine,
 de-duplicated alerting, SQLite persistence, a FastAPI backend with WebSocket
 streaming, and a SOC-style dashboard.
+
+**Author:** [Saloni Kumari](https://github.com/saloni-29-01) · B.Tech Computer Science & IT, C. V. Raman Global University, Bhubaneswar · Repository: [github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL](https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL)
 
 > **Built on the original work of Mohammed Ali Cheddad** ([AI-Based-Network-IDS_ML-DL](https://github.com/mohammedAcheddad/AI-Based-Network-IDS_ML-DL), MIT, DOI [10.5281/zenodo.17488850](https://doi.org/10.5281/zenodo.17488850)). See [Credits](#credits) for exactly what is original and what was added.
 
@@ -253,7 +256,7 @@ Interactive docs: `http://127.0.0.1:8000/docs`.
 ## Installation
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL.git
 cd AI-Based-Network-IDS_ML-DL
 python -m venv .venv
 .venv\Scripts\activate            # Linux/macOS: source .venv/bin/activate
@@ -382,11 +385,27 @@ feature categorisation and label consolidation; the evaluated model set
 `script.py`. The original copyright notice is preserved in [`LICENSE`](LICENSE).
 The 1D-CNN in `app/models/cnn.py` is refactored from his multiclass notebook.
 
-### Modernisation, integration and new components: Saloni Kumari
+### Modernisation, integration and new components: [Saloni Kumari](https://github.com/saloni-29-01)
 * First pass (see [CHANGELOG.md](CHANGELOG.md)): Keras 3 / pandas 3 compatibility, leakage and label-alignment fixes in the notebooks.
 * v2.0 (this release): repository audit ([docs/AUDIT.md](docs/AUDIT.md)); modular `app/` architecture; honest evaluation on KDDTest+/KDDTest-21; model registry with versioned metadata; the 28-feature flow engine; flow tracker and KDD-style traffic features; live capture, PCAP replay, flow replay and dataset simulation; ensemble and risk engine; tree path attribution; alert manager; SQLite storage; FastAPI + WebSocket backend; dashboard; conditional WGAN-GP augmentation with validation; drift monitor; reports and exports; Windows tooling; test suite; documentation.
 
+### Contact
+Questions, bugs and suggestions: please open an issue at <https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL/issues>.
+Security reports: see [SECURITY.md](SECURITY.md).
+
 ### Citation
+If you use this integrated system (v2.0), cite this repository:
+
+```bibtex
+@software{kumari2026idsv2,
+  author = {Saloni Kumari},
+  title  = {AI-Based Network Intrusion Detection System (ML/DL), v2.0: integrated live IDS with GAN augmentation},
+  year   = {2026},
+  url    = {https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL},
+  note   = {Based on Cheddad, M.A. (2025), AI-Based-Network-IDS_ML-DL, doi:10.5281/zenodo.17488850}
+}
+```
+
 If you use the underlying methodology, cite the original project:
 
 ```bibtex
@@ -400,4 +419,4 @@ If you use the underlying methodology, cite the original project:
 }
 ```
 
-Licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](LICENSE). © 2025 Mohammed Ali Cheddad (original work), © 2026 Saloni Kumari (v2.0).

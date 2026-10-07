@@ -1,5 +1,9 @@
 # Contributor Covenant Code of Conduct
 
+This Code of Conduct applies to the
+[AI-Based-Network-IDS_ML-DL](https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL)
+project, maintained by [Saloni Kumari](https://github.com/saloni-29-01).
+
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our
@@ -59,8 +63,11 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-email.
+reported to the project maintainer, Saloni Kumari
+([@saloni-29-01](https://github.com/saloni-29-01)), who is responsible for
+enforcement. Reports can be made privately through GitHub (see the
+maintainer's profile), or, for issues that are not sensitive, through the
+[issue tracker](https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL/issues).
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
