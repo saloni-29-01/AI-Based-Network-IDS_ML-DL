@@ -400,7 +400,7 @@ If you use this integrated system (v2.0), cite this repository:
   title  = {AI-Based Network Intrusion Detection System (ML/DL), v2.0: integrated live IDS with GAN augmentation},
   year   = {2026},
   url    = {https://github.com/saloni-29-01/AI-Based-Network-IDS_ML-DL},
-  note   = {Based on Cheddad, M.A. (2025), AI-Based-Network-IDS_ML-DL, doi:10.5281/zenodo.17488850}
+  note   = {Based on Saloni, (2026), AI-Based-Network-IDS_ML-DL, doi:10.5281/zenodo.17488850}
 }
 ```
 
